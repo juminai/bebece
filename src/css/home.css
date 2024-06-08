@@ -78,6 +78,7 @@ header {
 .banner-principal {
     /* padding-bottom: 3rem; */
     position: relative;
+
     img {
         max-width: 100%;
     }
@@ -97,6 +98,7 @@ header {
     bottom: 5%;
     right: 46%;
 }
+
 #pagination-principal .swiper-pagination-bullet {
     background-color: var(--white);
 }
@@ -160,8 +162,8 @@ header {
 }
 
 .lancamentos-items {
-    display: flex;
-    gap: 1rem;
+    /* display: flex;
+    gap: 1rem; */
 }
 
 .lancamentos h2 {
@@ -224,7 +226,6 @@ header {
     gap: 2rem;
     padding: 3.5rem 5rem 3.5rem 5rem;
     background-color: var(--white-2);
-    
 }
 
 .blog .title {
@@ -240,9 +241,19 @@ header {
     }
 }
 
+#swiper-blog {
+}
+
+
+#pagination-blog {
+    
+}
+
 #pagination-blog .swiper-pagination-bullet {
     background-color: var(--black-2);
 }
+
+
 .post {
     display: flex;
     flex-direction: column;
@@ -280,9 +291,11 @@ header {
     background-color: var(--pink-3);
     padding: 2rem 1rem;
     gap: 1rem;
+    transition: gap 0.2s;
 }
 
 .newsletter p {
+    font-size: 1.125rem;
     color: var(--red);
     margin-right: 1rem;
 
@@ -310,6 +323,31 @@ header {
     padding: .9rem 1.5rem;
     width: 18.75rem;
     cursor: pointer;
+}
+.newsletter.clicado {
+    gap: 0rem;
+}
+
+.newsletter.clicado {
+    p:nth-child(1) {
+        color: var(--black-2);
+        padding-right: 2rem;
+    }
+
+    p:nth-child(2){
+        background-color: var(--white);
+        border: 2px dashed var(--gray);
+        border-radius: 2rem 0 0 2rem;
+        padding: .7rem 1.5rem;
+        margin-right: 0;
+        width: 12rem;
+        text-align: center;
+    }
+
+    button {
+        border-radius: 0 2rem 2rem 0;
+        width: 10rem;
+    }
 }
 
 .about {
