@@ -1,0 +1,42 @@
+.about {
+    background-color: var(--red);
+    padding: 15.625rem 3rem 15.625rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.about .bbc {
+    width: 40rem;
+}
+
+.direita {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    margin-right: 8rem;
+}
+
+.redes {
+    display: flex;
+    gap: 1rem;
+}
+
+.sobre,
+.politicas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--white);
+
+    h3 {
+        font-weight: 600;
+    }
+
+    a {
+        color: var(--white);
+        text-decoration-color: var(--white-dim);
+    }
+}

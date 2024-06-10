@@ -1,0 +1,29 @@
+.categorias {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3.5rem 5rem 4rem 5rem;
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+}
+
+.categorias-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.categoria {
+    img {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: var(--black-2);
+        font-weight: 300;
+    }
+}

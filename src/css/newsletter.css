@@ -1,0 +1,79 @@
+.newsletter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--pink-3);
+    padding: 2rem 1rem;
+    gap: 1rem;
+    transition: gap 0.2s;
+    position: relative;
+}
+
+.newsletter p {
+    font-size: 1.125rem;
+    color: var(--red);
+    margin-right: 1rem;
+
+    strong {
+        font-weight: bold;
+    }
+}
+
+.email-input-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.mensagem-erro {
+    color: var(--red);
+    font-size: .9rem;
+    position: absolute;
+    bottom: 12%;
+
+}
+
+.newsletter input {
+    background-color: var(--white);
+    border: 1px solid var(--white-3);
+    padding: .9rem 1.5rem;
+    width: 18.75rem;
+
+    &::placeholder {
+        color: var(--gray);
+        font-size: .9rem;
+    }
+}
+
+.newsletter button {
+    background-color: var(--red);
+    color: var(--white);
+    border: 1px solid var(--red);
+    padding: .9rem 1.5rem;
+    width: 18.75rem;
+    cursor: pointer;
+}
+.newsletter.clicado {
+    gap: 0rem;
+}
+
+.newsletter.clicado {
+    p:nth-child(1) {
+        color: var(--black-2);
+        padding-right: 2rem;
+    }
+
+    p:nth-child(2){
+        background-color: var(--white);
+        border: 2px dashed var(--gray);
+        border-radius: 2rem 0 0 2rem;
+        padding: .7rem 1.5rem;
+        margin-right: 0;
+        width: 12rem;
+        text-align: center;
+    }
+
+    button {
+        border-radius: 0 2rem 2rem 0;
+        width: 10rem;
+    }
+}

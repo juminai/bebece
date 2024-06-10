@@ -10,14 +10,47 @@
     <script src="../js/swiper.js" defer></script>
     <script src="../js/header.js" defer></script>
     <script src="../js/newsletter.js" defer></script>
+    <script src="../js/cep.js" defer></script>
 </head>
 
 <body>
     <div class="home-page">
+
+        <div class="modal-cep-background">
+            <div class="modal-cep">
+                <button type="button" class="close-button-cep"><img src="../../public/icons/close-button.svg"
+                        alt=""></button>
+
+                <h2>Personalize sua experiência e encontre produtos perto de você!</h2>
+
+                <div class="modal-cep-inputs">
+
+                    <div class="codigo-postal">
+                        <p>Código postal*</p>
+                        <input class="cep-input" type="text" placeholder="00000-000" pattern="\d{5}.?\d{3}">
+                    </div>
+
+                    <div class="cidade-estado">
+                        <div class="cidade">
+                            <p>Cidade</p>
+                            <input type="text" class="cidade-input" placeholder="opcional" readonly>
+                        </div>
+
+                        <div class="estado">
+                            <p>Estado</p>
+                            <input type="text" class="estado-input" placeholder="opcional" readonly>
+                        </div>
+                    </div>
+
+                    <button type="button" class="save-cep">Salvar endereço</button>
+                </div>
+            </div>
+        </div>
+
         <header>
             <div class="location">
-                <p class="texto">Você está em: <span class="local">São Paulo</span></p>
-                <p class="alterar-localizacao">Alterar</p>
+                <p class="texto">Você está em: <span class="localidade">São Paulo</span></p>
+                <p class="alterar-localidade">Alterar</p>
             </div>
 
             <div class="menu">
@@ -43,23 +76,17 @@
         </header>
 
         <section class="banner-principal">
-            <!-- Slider main container -->
             <div class="swiper" id="swiper-principal">
-                <!-- Additional required wrapper -->
                 <div class="swiper-wrapper principal">
-                    <!-- Slides -->
                     <div class="swiper-slide">
-                        <div class="banner-1">
-                            <img src="../../public/png/principal/banner-1.png" alt="">
-                            <button type="button">Conheça agora!</button>
-                        </div>
+                        <img src="../../public/png/principal/banner-1.png" alt="">
                     </div>
                     <div class="swiper-slide">
                         <img src="../../public/png/principal/banner-2.png" alt="">
                     </div>
                 </div>
 
-                <!-- If we need pagination -->
+                <button type="button">Conheça agora!</button>
                 <div class="swiper-pagination" id="pagination-principal"></div>
             </div>
 
@@ -101,17 +128,26 @@
         </section>
 
         <section class="lancamentos">
-            <h2>Lançamentos</h2>
+
+            <div class="lancamentos-header">
+                <h2>Lançamentos</h2>
+
+                <div class="custom-pagination-container">
+                    <button id="swiper-lancamentos-prev"><img src="../../public/icons/esquerda.svg" alt=""></button>
+                    <div class="custom-pagination-lancamentos"></div>
+                    <button id="swiper-lancamentos-next"><img src="../../public/icons/direita.svg" alt=""></button>
+                </div>
+            </div>
 
             <div class="lancamentos-items">
                 <div class="swiper" id="swiper-lancamentos">
-                    <div class="swiper-pagination" id="pagination-lancamentos"></div>
                     <div class="swiper-wrapper">
 
                         <div class="swiper-slide">
+
                             <div class="lancamentos-item">
-                                <div class="img-div">
-                                    <img src="../../public/png/produto/image 7.png" alt="">
+                                <div class="lancamentos-img">
+                                    <img src="../../public/png/produto/scarpin-slig.png" alt="">
                                     <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
                                     <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
                                             alt=""></button>
@@ -128,8 +164,65 @@
 
                         <div class="swiper-slide">
                             <div class="lancamentos-item">
-                                <div class="img-div">
-                                    <img src="../../public/png/produto/image 7.png" alt="">
+                                <div class="lancamentos-img">
+                                    <img src="../../public/png/produto/sandalia-braco.png" alt="">
+                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
+                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
+                                            alt=""></button>
+                                </div>
+
+                                <div class="item-info">
+                                    <p class="desc">
+                                        Sandália Braco Blanc Tratorada...
+                                    </p>
+                                    <p class="preco">R$179,90</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="lancamentos-item">
+                                <div class="lancamentos-img">
+                                    <img src="../../public/png/produto/coturno.png" alt="">
+                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
+                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
+                                            alt=""></button>
+                                </div>
+
+                                <div class="item-info">
+                                    <p class="desc">
+                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
+                                    </p>
+                                    <div class="item-preco">
+                                        <p class="preco-anterior">R$ 349,90</p>
+                                        <p class="preco">R$ 315</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="lancamentos-item">
+                                <div class="lancamentos-img">
+                                    <img src="../../public/png/produto/scarpin-bebece.png" alt="">
+                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
+                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
+                                            alt=""></button>
+                                </div>
+
+                                <div class="item-info">
+                                    <p class="desc">
+                                        Scarpin Bebecê Salto Alto Taça Com Fivela
+                                    </p>
+                                    <p class="preco">R$ 159,90</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="lancamentos-item">
+                                <div class="lancamentos-img">
+                                    <img src="../../public/png/produto/coturno.png" alt="">
                                     <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
                                     <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
                                             alt=""></button>
@@ -138,117 +231,122 @@
 
                                 <div class="item-info">
                                     <p class="desc">
-                                        Scarpin Sligback Bebecê Salto Médio Taça Detalhe Metalizado
+                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
                                     </p>
-                                    <p class="preco">R$179,90</p>
+                                    <div class="item-preco">
+                                        <p class="preco-anterior">R$ 349,90</p>
+                                        <p class="preco">R$ 315</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="lancamentos-item">
-                                <div class="img-div">
-                                    <img src="../../public/png/produto/image 7.png" alt="">
+                                <div class="lancamentos-img">
+                                    <img src="../../public/png/produto/coturno.png" alt="">
                                     <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
                                     <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
                                             alt=""></button>
+                                    <p class="off">15% OFF</p>
                                 </div>
 
                                 <div class="item-info">
                                     <p class="desc">
-                                        Scarpin Sligback Bebecê Salto Médio Taça Detalhe Metalizado
+                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
                                     </p>
-                                    <p class="preco">R$179,90</p>
+                                    <div class="item-preco">
+                                        <p class="preco-anterior">R$ 349,90</p>
+                                        <p class="preco">R$ 315</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="lancamentos-item">
-                                <div class="img-div">
-                                    <img src="../../public/png/produto/image 7.png" alt="">
+                                <div class="lancamentos-img">
+                                    <img src="../../public/png/produto/coturno.png" alt="">
                                     <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
                                     <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
                                             alt=""></button>
+                                    <p class="off">15% OFF</p>
                                 </div>
 
                                 <div class="item-info">
                                     <p class="desc">
-                                        Scarpin Sligback Bebecê Salto Médio Taça Detalhe Metalizado
+                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
                                     </p>
-                                    <p class="preco">R$179,90</p>
+                                    <div class="item-preco">
+                                        <p class="preco-anterior">R$ 349,90</p>
+                                        <p class="preco">R$ 315</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="lancamentos-item">
-                                <div class="img-div">
-                                    <img src="../../public/png/produto/image 7.png" alt="">
+                                <div class="lancamentos-img">
+                                    <img src="../../public/png/produto/coturno.png" alt="">
                                     <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
                                     <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
                                             alt=""></button>
+                                    <p class="off">15% OFF</p>
                                 </div>
 
                                 <div class="item-info">
                                     <p class="desc">
-                                        Scarpin Sligback Bebecê Salto Médio Taça Detalhe Metalizado
+                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
                                     </p>
-                                    <p class="preco">R$179,90</p>
+                                    <div class="item-preco">
+                                        <p class="preco-anterior">R$ 349,90</p>
+                                        <p class="preco">R$ 315</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="lancamentos-item">
-                                <div class="img-div">
-                                    <img src="../../public/png/produto/image 7.png" alt="">
+                                <div class="lancamentos-img">
+                                    <img src="../../public/png/produto/coturno.png" alt="">
                                     <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
                                     <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
                                             alt=""></button>
+                                    <p class="off">15% OFF</p>
                                 </div>
 
                                 <div class="item-info">
                                     <p class="desc">
-                                        Scarpin Sligback Bebecê Salto Médio Taça Detalhe Metalizado
+                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
                                     </p>
-                                    <p class="preco">R$179,90</p>
+                                    <div class="item-preco">
+                                        <p class="preco-anterior">R$ 349,90</p>
+                                        <p class="preco">R$ 315</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="lancamentos-item">
-                                <div class="img-div">
-                                    <img src="../../public/png/produto/image 7.png" alt="">
+                                <div class="lancamentos-img">
+                                    <img src="../../public/png/produto/coturno.png" alt="">
                                     <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
                                     <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
                                             alt=""></button>
+                                    <p class="off">15% OFF</p>
                                 </div>
 
                                 <div class="item-info">
                                     <p class="desc">
-                                        Scarpin Sligback Bebecê Salto Médio Taça Detalhe Metalizado
+                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
                                     </p>
-                                    <p class="preco">R$179,90</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="lancamentos-item">
-                                <div class="img-div">
-                                    <img src="../../public/png/produto/image 7.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Scarpin Sligback Bebecê Salto Médio Taça Detalhe Metalizado
-                                    </p>
-                                    <p class="preco">R$179,90</p>
+                                    <div class="item-preco">
+                                        <p class="preco-anterior">R$ 349,90</p>
+                                        <p class="preco">R$ 315</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -258,17 +356,23 @@
         </section>
 
         <section class="blog">
-            <div class="title">
-                <h2>Conheça mais</h2>
-                <p>Fique por dentro de tudo que acontece na Bebecê.</p>
+            <div class="blog-header">
+
+                <div class="blog-title">
+                    <h2>Conheça mais</h2>
+                    <p>Fique por dentro de tudo que acontece na Bebecê.</p>
+                </div>
+
+                <div class="custom-pagination-container">
+                    <button id="swiper-blog-prev"><img src="../../public/icons/esquerda.svg" alt=""></button>
+                    <div class="custom-pagination-blog"></div>
+                    <button id="swiper-blog-next"><img src="../../public/icons/direita.svg" alt=""></button>
+                </div>
 
             </div>
 
             <div class="blog-posts">
                 <div class="swiper" id="swiper-blog">
-
-                    <div class="swiper-pagination" id="pagination-blog"></div>
-
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="post">
@@ -299,6 +403,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="swiper-slide">
                             <div class="post">
                                 <img src="../../public/png/blog/glamour.png" alt="">
@@ -313,6 +418,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="swiper-slide">
                             <div class="post">
                                 <img src="../../public/png/blog/image 5.png" alt="">
@@ -326,6 +432,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="swiper-slide">
                             <div class="post">
                                 <img src="../../public/png/blog/image 12.png" alt="">
@@ -341,6 +448,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="swiper-slide">
                             <div class="post">
                                 <img src="../../public/png/blog/glamour.png" alt="">
@@ -355,6 +463,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -364,14 +473,16 @@
             <div class="newsletter">
                 <p>Cadastre-se e receba <strong>10% OFF</strong> na sua primeira compra!</p>
 
-                <input type="email" placeholder="Digite seu e-mail">
+                <div class="email-input-div">
+                    <input type="email" placeholder="Digite seu e-mail" required>
+                    <span class="mensagem-erro"></span>
+                </div>
 
                 <button type="button">ENVIAR</button>
             </div>
 
             <div class="about">
                 <img class="bbc" src="../../public/icons/logo.svg" alt="">
-
 
                 <div class="direita">
                     <div class="redes">
