@@ -1,14 +1,3 @@
-@import url(./styles.css);
-@import url(./header.css);
-@import url(./principal.css);
-@import url(./categorias.css);
-@import url(./lancamentos.css);
-@import url(./navegacao.css);
-@import url(./blog.css);
-@import url(./newsletter.css);
-@import url(./footer.css);
-@import url(./modalCep.css);
-
 .home-page {
     font-family: var(--font);
 }

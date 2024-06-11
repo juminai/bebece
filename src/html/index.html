@@ -5,12 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bebece</title>
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-    <script src="../js/swiper.js" defer></script>
-    <script src="../js/header.js" defer></script>
-    <script src="../js/newsletter.js" defer></script>
-    <script src="../js/cep.js" defer></script>
+    <script type="module" src="../js/scripts.js" defer></script>
 </head>
 
 <body>
@@ -54,23 +51,42 @@
             </div>
 
             <div class="menu">
-                <div class="menu-esquerda">
-                    <img class="logo" src="../../public/icons/logo.svg" alt="logo-branco">
+                <div class="options">
+                    <div class="menu-esquerda">
+                        <img class="logo" src="../../public/icons/logo.svg" alt="logo-branco">
 
-                    <a class="text" href="">Produtos <span class="baixo"><img class="baixo"
-                                src="../../public/icons/baixo.svg" alt=""></span></a>
-                    <a class="text" href="">Lançamentos</a>
-                    <a href="" class="text outlet">Outlet</a>
+                        <p class="text open-menu-produtos">
+                            Produtos 
+                            <span class="baixo"><img class="baixo"
+                                src="../../public/icons/baixo.svg" alt="">
+                            </span>
+                        </p>
+
+                        <a class="text" href="">Lançamentos</a>
+                        <a href="" class="text outlet">Outlet</a>
+                    </div>
+
+                    <div class="menu-direita">
+                        <img class="lupa" src="../../public/icons/lupa.svg" alt="search">
+                        <img class="pessoa" src="../../public/icons/pessoa.svg" alt="conta">
+
+                        <div class="header-carrinho">
+                            <img class="cart" src="../../public/icons/cart.svg" alt="carrinho">
+                            <p class="qtd-carrinho text">0</p>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="menu-direita">
-                    <img class="lupa" src="../../public/icons/lupa.svg" alt="search">
-                    <img class="pessoa" src="../../public/icons/pessoa.svg" alt="conta">
+                <div class="menu-produtos">
+                    <ul>
+                        <li>Sapatos</li>
+                        <li>Scarpins</li>
+                        <li>Sandálias</li>
+                        <li>Botas</li>
+                    </ul>
 
-                    <div class="header-carrinho">
-                        <img class="cart" src="../../public/icons/cart.svg" alt="carrinho">
-                        <p class="qtd-carrinho text">0</p>
-                    </div>
+                    <img src="" alt="" class="imagem-produto">
                 </div>
             </div>
         </header>
@@ -96,7 +112,6 @@
             <h2>Categorias</h2>
 
             <div class="categorias-items">
-
                 <div class="categoria">
                     <img src="../../public/png/categorias/botas.png" alt="">
                     <p>Botas</p>
@@ -116,7 +131,6 @@
                     <img src="../../public/png/categorias/sandalias.png" alt="">
                     <p>Sandálias</p>
                 </div>
-
             </div>
         </section>
 
@@ -128,7 +142,6 @@
         </section>
 
         <section class="lancamentos">
-
             <div class="lancamentos-header">
                 <h2>Lançamentos</h2>
 
@@ -141,216 +154,7 @@
 
             <div class="lancamentos-items">
                 <div class="swiper" id="swiper-lancamentos">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-
-                            <div class="lancamentos-item">
-                                <div class="lancamentos-img">
-                                    <img src="../../public/png/produto/scarpin-slig.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Scarpin Sligback Bebecê Salto Médio Taça Detalhe Metalizado
-                                    </p>
-                                    <p class="preco">R$179,90</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="lancamentos-item">
-                                <div class="lancamentos-img">
-                                    <img src="../../public/png/produto/sandalia-braco.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Sandália Braco Blanc Tratorada...
-                                    </p>
-                                    <p class="preco">R$179,90</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="lancamentos-item">
-                                <div class="lancamentos-img">
-                                    <img src="../../public/png/produto/coturno.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
-                                    </p>
-                                    <div class="item-preco">
-                                        <p class="preco-anterior">R$ 349,90</p>
-                                        <p class="preco">R$ 315</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="lancamentos-item">
-                                <div class="lancamentos-img">
-                                    <img src="../../public/png/produto/scarpin-bebece.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Scarpin Bebecê Salto Alto Taça Com Fivela
-                                    </p>
-                                    <p class="preco">R$ 159,90</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="lancamentos-item">
-                                <div class="lancamentos-img">
-                                    <img src="../../public/png/produto/coturno.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                    <p class="off">15% OFF</p>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
-                                    </p>
-                                    <div class="item-preco">
-                                        <p class="preco-anterior">R$ 349,90</p>
-                                        <p class="preco">R$ 315</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="lancamentos-item">
-                                <div class="lancamentos-img">
-                                    <img src="../../public/png/produto/coturno.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                    <p class="off">15% OFF</p>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
-                                    </p>
-                                    <div class="item-preco">
-                                        <p class="preco-anterior">R$ 349,90</p>
-                                        <p class="preco">R$ 315</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="lancamentos-item">
-                                <div class="lancamentos-img">
-                                    <img src="../../public/png/produto/coturno.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                    <p class="off">15% OFF</p>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
-                                    </p>
-                                    <div class="item-preco">
-                                        <p class="preco-anterior">R$ 349,90</p>
-                                        <p class="preco">R$ 315</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="lancamentos-item">
-                                <div class="lancamentos-img">
-                                    <img src="../../public/png/produto/coturno.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                    <p class="off">15% OFF</p>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
-                                    </p>
-                                    <div class="item-preco">
-                                        <p class="preco-anterior">R$ 349,90</p>
-                                        <p class="preco">R$ 315</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="lancamentos-item">
-                                <div class="lancamentos-img">
-                                    <img src="../../public/png/produto/coturno.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                    <p class="off">15% OFF</p>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
-                                    </p>
-                                    <div class="item-preco">
-                                        <p class="preco-anterior">R$ 349,90</p>
-                                        <p class="preco">R$ 315</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="lancamentos-item">
-                                <div class="lancamentos-img">
-                                    <img src="../../public/png/produto/coturno.png" alt="">
-                                    <button class="add-to-fav"><img src="../../public/icons/fav.svg" alt=""></button>
-                                    <button class="add-to-cart"><img src="../../public/icons/Adicionar pela vitrine.svg"
-                                            alt=""></button>
-                                    <p class="off">15% OFF</p>
-                                </div>
-
-                                <div class="item-info">
-                                    <p class="desc">
-                                        Coturno Feminino Bebecê Tratorado Detalhe Tachas
-                                    </p>
-                                    <div class="item-preco">
-                                        <p class="preco-anterior">R$ 349,90</p>
-                                        <p class="preco">R$ 315</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="swiper-wrapper"></div>
                 </div>
             </div>
         </section>
@@ -373,98 +177,7 @@
 
             <div class="blog-posts">
                 <div class="swiper" id="swiper-blog">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="post">
-                                <img src="../../public/png/blog/image 5.png" alt="">
-
-                                <div class="info">
-                                    <h3>É AMANHÃ</h3>
-
-                                    <p>SIMPLE and TRUE: lançamento da nova coleção Outono Inverno 2024 da Bebecê ❤️</p>
-
-                                    <a href="">Saiba mais!</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="post">
-                                <img src="../../public/png/blog/image 12.png" alt="">
-
-                                <div class="info">
-                                    <h3>NOVO LOGO, MESMA ESSÊNCIA.</h3>
-
-                                    <p>Trazendo conforto através das linhas finas e grossas + uma paleta de cores
-                                        vibrante e cheia de atitude, o resultado é um visual que traduz nossa essência:
-                                        autêntica e surpreendente!</p>
-
-                                    <a href="">Saiba mais!</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="post">
-                                <img src="../../public/png/blog/glamour.png" alt="">
-
-                                <div class="info">
-                                    <h3>Descubra o glamour em cada passo.</h3>
-
-                                    <p>Quer brilhar ainda mais neste inverno sem abrir mão do conforto? Esta mule é
-                                        perfeita para você. ✨</p>
-
-                                    <a href="">Saiba mais!</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="post">
-                                <img src="../../public/png/blog/image 5.png" alt="">
-
-                                <div class="info">
-                                    <h3>É AMANHÃ</h3>
-
-                                    <p>SIMPLE and TRUE: lançamento da nova coleção Outono Inverno 2024 da Bebecê ❤️</p>
-
-                                    <a href="">Saiba mais!</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="post">
-                                <img src="../../public/png/blog/image 12.png" alt="">
-
-                                <div class="info">
-                                    <h3>NOVO LOGO, MESMA ESSÊNCIA.</h3>
-
-                                    <p>Trazendo conforto através das linhas finas e grossas + uma paleta de cores
-                                        vibrante e cheia de atitude, o resultado é um visual que traduz nossa essência:
-                                        autêntica e surpreendente!</p>
-
-                                    <a href="">Saiba mais!</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="post">
-                                <img src="../../public/png/blog/glamour.png" alt="">
-
-                                <div class="info">
-                                    <h3>Descubra o glamour em cada passo.</h3>
-
-                                    <p>Quer brilhar ainda mais neste inverno sem abrir mão do conforto? Esta mule é
-                                        perfeita para você. ✨</p>
-
-                                    <a href="">Saiba mais!</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    <div class="swiper-wrapper"></div>
                 </div>
             </div>
         </section>

@@ -29,17 +29,14 @@ header {
 
 .menu {
     background-color: transparent;
-
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 1.5rem 5rem 1.5rem 5rem;
-
+    gap: 1rem;
 
     .text {
         color: var(--white);
         text-decoration: none;
-
-
     }
 
     .dark {
@@ -50,6 +47,16 @@ header {
         color: var(--red);
     }
 
+}
+
+.open-menu-produtos {
+    cursor: pointer;
+}
+
+.menu .options {
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 1.5rem; */
 }
 
 .scrolled {
