@@ -9,14 +9,19 @@ export default function newsletter() {
         if (emailInput.checkValidity()) {
             newsletter.classList.add('clicado')
             newsletter.innerHTML = `
-        <p>Utilize o cupom abaixo e garanta seu desconto!</p>
-        <p>BEMVINDA</p>
-        <button class="button-clicado" type="button">Copiar</button>
-    `
+                <p>Utilize o cupom abaixo e garanta seu desconto!</p>
+                <p>BEMVINDA</p>
+                <button class="button-clicado" type="button" value="BEMVINDA">Copiar</button>
+            `
 
             const btnClicado = document.querySelector('.button-clicado')
             btnClicado.addEventListener('click', () => {
                 btnClicado.textContent = 'Copiado'
+
+                btnClicado.select()
+                btnClicado.setSelectionRange(0, 99999)
+
+                navigator.clipboard.writeText(btnClicado.value)
             })
         } else {
             mensagemErro.textContent = 'Insira um e-mail valido'

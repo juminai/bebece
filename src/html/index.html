@@ -44,6 +44,45 @@
             </div>
         </div>
 
+        <div class="modal-vitrine-background">
+            <div class="modal-vitrine">
+                <img src="" alt="" class="vitrine-produto-img" id="vitrine-img">
+                <div class="vitrine-produto-info" id="vitrine-specs">
+                    <button class="vitrine-close"><img src="../../public/icons/close-button.svg" alt=""></button>
+                    <h2 class="vitrine-produto-nome" id="vitrine-name"></h2>
+
+                    <div class="vitrine-produto-tamanhos">
+                        <p class="tamanho-selecionado" id="vitrine-number"></p>
+                        <div class="tamanhos"></div>
+                    </div>
+
+                    <button class="add-carrinho" type="button">
+                        Adicionar ao carrinho
+                        <span>
+                            <img src="../../public/icons/sacolinha.svg" alt="">
+                        </span>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="carrinho">
+
+            <h1>Carrinho</h1>
+            <button class="close-carrinho"><img src="../../public/icons/close-button.svg" alt=""></button>
+
+            <div class="carrinho-items"></div>
+
+            <div class="pedido-resumo">
+
+                <button class="finalizar">Finalizar pedido</button>
+
+                <button class="continuar">Continuar comprando</button>
+            </div>
+
+        </div>
+
         <header>
             <div class="location">
                 <p class="texto">Você está em: <span class="localidade">São Paulo</span></p>
@@ -55,15 +94,14 @@
                     <div class="menu-esquerda">
                         <img class="logo" src="../../public/icons/logo.svg" alt="logo-branco">
 
-                        <p class="text open-menu-produtos">
-                            Produtos 
-                            <span class="baixo"><img class="baixo"
-                                src="../../public/icons/baixo.svg" alt="">
+                        <p class="text" id="menu-produtos">
+                            Produtos
+                            <span class="baixo"><img class="baixo" src="../../public/icons/baixo.svg" alt="">
                             </span>
                         </p>
 
-                        <a class="text" href="">Lançamentos</a>
-                        <a href="" class="text outlet">Outlet</a>
+                        <a class="text" id="menu-lancamentos" href="#section-lancamentos">Lançamentos</a>
+                        <a href="" id="menu-outlet" class="">Outlet</a>
                     </div>
 
                     <div class="menu-direita">
@@ -141,7 +179,7 @@
             <img src="../../public/png/navegacao/banner-pequeno.png" alt="" class="image-2">
         </section>
 
-        <section class="lancamentos">
+        <section class="lancamentos" id="section-lancamentos">
             <div class="lancamentos-header">
                 <h2>Lançamentos</h2>
 

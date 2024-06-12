@@ -1,21 +1,30 @@
 import { toggleColor } from "./header.js"
 
 export default function menuProdutos() {
-    const openMenu = document.querySelector('.open-menu-produtos')
+    const openMenu = document.querySelector('#menu-produtos')
     const menuProducts = document.querySelector('.menu-produtos')
     const imagemProduto = document.querySelector('.imagem-produto')
     const options = document.querySelectorAll('.menu-produtos li')
 
-    openMenu.addEventListener('click', () => {
-        let curretDisplay = window.getComputedStyle(menuProducts).display
+    imagemProduto.setAttribute('src', '/public/png/categorias/sapatos.png')
 
-        if (curretDisplay == 'none') {
+    openMenu.addEventListener('click', () => {
+        let menuOpen = window.getComputedStyle(menuProducts).display === 'flex' ? true : false
+
+        if (!menuOpen) {
             menuProducts.style.display = 'flex'
+            openMenu.classList.add('active')
             toggleColor('dark')
         } else {
-            menuProducts.style.display = 'none'
-            toggleColor('light')
+            if (window.scrollY >= 1) {
+                menuProducts.style.display = 'none'
+            } else {
+                toggleColor('light')
+                menuProducts.style.display = 'none'
+            }
+            openMenu.classList.remove('active')
         }
+
     })
 
     options.forEach((option) => {

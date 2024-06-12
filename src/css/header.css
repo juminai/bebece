@@ -31,7 +31,7 @@ header {
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem 5rem 1.5rem 5rem;
+    padding: 1.5rem 5rem 0;
     gap: 1rem;
 
     .text {
@@ -43,20 +43,16 @@ header {
         color: var(--black-2);
     }
 
-    .outlet {
+    #menu-outlet {
         color: var(--red);
+        text-decoration: none;
     }
-
-}
-
-.open-menu-produtos {
-    cursor: pointer;
 }
 
 .menu .options {
     display: flex;
     justify-content: space-between;
-    /* margin-bottom: 1.5rem; */
+    /* align-items: center; */
 }
 
 .scrolled {
@@ -68,6 +64,30 @@ header {
     display: flex;
     gap: 2.5rem;
     align-items: center;
+}
+
+.options .logo {
+    align-self: start;
+}
+
+.menu-direita {
+    align-self: start;
+}
+
+#menu-produtos {
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1.5rem;
+}
+
+.menu-esquerda a {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid transparent;
+}
+
+#menu-produtos.active,
+.menu-esquerda a.active {
+    border-bottom: 1px solid var(--black-2);
 }
 
 .header-carrinho {
