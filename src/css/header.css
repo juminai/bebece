@@ -59,6 +59,10 @@ header {
     background-color: var(--white);
 }
 
+.header-carrinho {
+    cursor: pointer;
+}
+
 .menu-esquerda,
 .menu-direita {
     display: flex;

@@ -1,3 +1,7 @@
 .home-page {
     font-family: var(--font);
 }
+
+body::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}

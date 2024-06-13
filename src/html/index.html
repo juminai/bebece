@@ -1,266 +1,407 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bebece</title>
+        <link rel="stylesheet" href="../css/styles.css" />
+        <script
+            src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+            defer
+        ></script>
+        <script type="module" src="../js/scripts.js" defer></script>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bebece</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-    <script type="module" src="../js/scripts.js" defer></script>
-</head>
-
-<body>
-    <div class="home-page">
-
-        <div class="modal-cep-background">
-            <div class="modal-cep">
-                <button type="button" class="close-button-cep"><img src="../../public/icons/close-button.svg"
-                        alt=""></button>
-
-                <h2>Personalize sua experiência e encontre produtos perto de você!</h2>
-
-                <div class="modal-cep-inputs">
-
-                    <div class="codigo-postal">
-                        <p>Código postal*</p>
-                        <input class="cep-input" type="text" placeholder="00000-000" pattern="\d{5}.?\d{3}">
-                    </div>
-
-                    <div class="cidade-estado">
-                        <div class="cidade">
-                            <p>Cidade</p>
-                            <input type="text" class="cidade-input" placeholder="opcional" readonly>
-                        </div>
-
-                        <div class="estado">
-                            <p>Estado</p>
-                            <input type="text" class="estado-input" placeholder="opcional" readonly>
-                        </div>
-                    </div>
-
-                    <button type="button" class="save-cep">Salvar endereço</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-vitrine-background">
-            <div class="modal-vitrine">
-                <img src="" alt="" class="vitrine-produto-img" id="vitrine-img">
-                <div class="vitrine-produto-info" id="vitrine-specs">
-                    <button class="vitrine-close"><img src="../../public/icons/close-button.svg" alt=""></button>
-                    <h2 class="vitrine-produto-nome" id="vitrine-name"></h2>
-
-                    <div class="vitrine-produto-tamanhos">
-                        <p class="tamanho-selecionado" id="vitrine-number"></p>
-                        <div class="tamanhos"></div>
-                    </div>
-
-                    <button class="add-carrinho" type="button">
-                        Adicionar ao carrinho
-                        <span>
-                            <img src="../../public/icons/sacolinha.svg" alt="">
-                        </span>
+    <body>
+        <div class="home-page">
+            <div class="modal-cep-background">
+                <div class="modal-cep">
+                    <button type="button" class="close-button-cep">
+                        <img src="../../public/icons/close-button.svg" alt="" />
                     </button>
 
+                    <h2>
+                        Personalize sua experiência e encontre produtos perto de
+                        você!
+                    </h2>
+
+                    <div class="modal-cep-inputs">
+                        <div class="codigo-postal">
+                            <p>Código postal*</p>
+                            <input
+                                class="cep-input"
+                                type="text"
+                                placeholder="00000-000"
+                                pattern="\d{5}.?\d{3}"
+                            />
+                        </div>
+
+                        <div class="cidade-estado">
+                            <div class="cidade">
+                                <p>Cidade</p>
+                                <input
+                                    type="text"
+                                    class="cidade-input"
+                                    placeholder="opcional"
+                                    readonly
+                                />
+                            </div>
+
+                            <div class="estado">
+                                <p>Estado</p>
+                                <input
+                                    type="text"
+                                    class="estado-input"
+                                    placeholder="opcional"
+                                    readonly
+                                />
+                            </div>
+                        </div>
+
+                        <button type="button" class="save-cep">
+                            Salvar endereço
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="carrinho">
+            <div class="modal-vitrine-background">
+                <div class="modal-vitrine">
+                    <img
+                        src=""
+                        alt=""
+                        class="vitrine-produto-img"
+                        id="vitrine-img"
+                    />
+                    <div class="vitrine-produto-info" id="vitrine-specs">
+                        <button class="vitrine-close">
+                            <img
+                                src="../../public/icons/close-button.svg"
+                                alt=""
+                            />
+                        </button>
+                        <h2 class="vitrine-produto-nome" id="vitrine-name"></h2>
 
-            <h1>Carrinho</h1>
-            <button class="close-carrinho"><img src="../../public/icons/close-button.svg" alt=""></button>
+                        <div class="vitrine-produto-tamanhos">
+                            <p
+                                class="tamanho-selecionado"
+                                id="vitrine-number"
+                            ></p>
+                            <div class="tamanhos"></div>
+                        </div>
 
-            <div class="carrinho-items"></div>
-
-            <div class="pedido-resumo">
-
-                <button class="finalizar">Finalizar pedido</button>
-
-                <button class="continuar">Continuar comprando</button>
-            </div>
-
-        </div>
-
-        <header>
-            <div class="location">
-                <p class="texto">Você está em: <span class="localidade">São Paulo</span></p>
-                <p class="alterar-localidade">Alterar</p>
-            </div>
-
-            <div class="menu">
-                <div class="options">
-                    <div class="menu-esquerda">
-                        <img class="logo" src="../../public/icons/logo.svg" alt="logo-branco">
-
-                        <p class="text" id="menu-produtos">
-                            Produtos
-                            <span class="baixo"><img class="baixo" src="../../public/icons/baixo.svg" alt="">
+                        <button class="add-carrinho">
+                            Adicionar ao carrinho
+                            <span>
+                                <img
+                                    src="../../public/icons/sacolinha.svg"
+                                    alt=""
+                                />
                             </span>
-                        </p>
-
-                        <a class="text" id="menu-lancamentos" href="#section-lancamentos">Lançamentos</a>
-                        <a href="" id="menu-outlet" class="">Outlet</a>
+                        </button>
                     </div>
+                </div>
+            </div>
 
-                    <div class="menu-direita">
-                        <img class="lupa" src="../../public/icons/lupa.svg" alt="search">
-                        <img class="pessoa" src="../../public/icons/pessoa.svg" alt="conta">
+            <div class="carrinho-background">
+                <div class="carrinho-container">
+                    <div class="carrinho">
+                        <div class="carrinho-header">
+                            <h1>Carrinho</h1>
+                            <button class="close-carrinho">
+                                <img
+                                    src="../../public/icons/close-button.svg"
+                                    alt=""
+                                />
+                            </button>
+                        </div>
 
-                        <div class="header-carrinho">
-                            <img class="cart" src="../../public/icons/cart.svg" alt="carrinho">
-                            <p class="qtd-carrinho text">0</p>
+                        <div class="carrinho-items"></div>
+                    </div>
+                    <div class="carrinho-footer">
+                        <div class="pedido-resumo">
+                            <p>Subtotal</p>
+                            <p id="subtotal"></p>
+                            <p>Descontos</p>
+                            <p id="descontos"></p>
+                            <p>Total</p>
+                            <p id="total"></p>
+                        </div>
+
+                        <div class="carrinho-acoes">
+                            <button class="finalizar">Finalizar pedido</button>
+                            <button class="continuar">
+                                Continuar comprando
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <header>
+                <div class="location">
+                    <p class="texto">
+                        Você está em: <span class="localidade">São Paulo</span>
+                    </p>
+                    <p class="alterar-localidade">Alterar</p>
+                </div>
+
+                <div class="menu">
+                    <div class="options">
+                        <div class="menu-esquerda">
+                            <img
+                                class="logo"
+                                src="../../public/icons/logo.svg"
+                                alt="logo-branco"
+                            />
+
+                            <p class="text" id="menu-produtos">
+                                Produtos
+                                <span class="baixo">
+                                    <img
+                                        class="baixo"
+                                        src="../../public/icons/baixo.svg"
+                                        alt=""
+                                    />
+                                </span>
+                            </p>
+
+                            <a
+                                class="text"
+                                id="menu-lancamentos"
+                                href="#section-lancamentos"
+                                >Lançamentos</a
+                            >
+                            <a href="" id="menu-outlet" class="">Outlet</a>
+                        </div>
+
+                        <div class="menu-direita">
+                            <img
+                                class="lupa"
+                                src="../../public/icons/lupa.svg"
+                                alt="search"
+                            />
+                            <img
+                                class="pessoa"
+                                src="../../public/icons/pessoa.svg"
+                                alt="conta"
+                            />
+
+                            <div class="header-carrinho">
+                                <img
+                                    class="cart"
+                                    src="../../public/icons/cart.svg"
+                                    alt="carrinho"
+                                />
+                                <p class="qtd-carrinho text">0</p>
+                            </div>
                         </div>
                     </div>
 
-                </div>
+                    <div class="menu-produtos">
+                        <ul>
+                            <li>Sapatos</li>
+                            <li>Scarpins</li>
+                            <li>Sandálias</li>
+                            <li>Botas</li>
+                        </ul>
 
-                <div class="menu-produtos">
-                    <ul>
-                        <li>Sapatos</li>
-                        <li>Scarpins</li>
-                        <li>Sandálias</li>
-                        <li>Botas</li>
-                    </ul>
-
-                    <img src="" alt="" class="imagem-produto">
-                </div>
-            </div>
-        </header>
-
-        <section class="banner-principal">
-            <div class="swiper" id="swiper-principal">
-                <div class="swiper-wrapper principal">
-                    <div class="swiper-slide">
-                        <img src="../../public/png/principal/banner-1.png" alt="">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="../../public/png/principal/banner-2.png" alt="">
+                        <img src="" alt="" class="imagem-produto" />
                     </div>
                 </div>
+            </header>
 
-                <button type="button">Conheça agora!</button>
-                <div class="swiper-pagination" id="pagination-principal"></div>
-            </div>
-
-        </section>
-
-        <section class="categorias">
-            <h2>Categorias</h2>
-
-            <div class="categorias-items">
-                <div class="categoria">
-                    <img src="../../public/png/categorias/botas.png" alt="">
-                    <p>Botas</p>
-                </div>
-
-                <div class="categoria">
-                    <img src="../../public/png/categorias/scarpins.png" alt="">
-                    <p>Scarpins</p>
-                </div>
-
-                <div class="categoria">
-                    <img src="../../public/png/categorias/sapatilhas.png" alt="">
-                    <p>Sapatilhas</p>
-                </div>
-
-                <div class="categoria">
-                    <img src="../../public/png/categorias/sandalias.png" alt="">
-                    <p>Sandálias</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="banner-navegacao">
-            <div>
-                <img src="../../public/png/navegacao/banner-grande.png" alt="">
-            </div>
-            <img src="../../public/png/navegacao/banner-pequeno.png" alt="" class="image-2">
-        </section>
-
-        <section class="lancamentos" id="section-lancamentos">
-            <div class="lancamentos-header">
-                <h2>Lançamentos</h2>
-
-                <div class="custom-pagination-container">
-                    <button id="swiper-lancamentos-prev"><img src="../../public/icons/esquerda.svg" alt=""></button>
-                    <div class="custom-pagination-lancamentos"></div>
-                    <button id="swiper-lancamentos-next"><img src="../../public/icons/direita.svg" alt=""></button>
-                </div>
-            </div>
-
-            <div class="lancamentos-items">
-                <div class="swiper" id="swiper-lancamentos">
-                    <div class="swiper-wrapper"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="blog">
-            <div class="blog-header">
-
-                <div class="blog-title">
-                    <h2>Conheça mais</h2>
-                    <p>Fique por dentro de tudo que acontece na Bebecê.</p>
-                </div>
-
-                <div class="custom-pagination-container">
-                    <button id="swiper-blog-prev"><img src="../../public/icons/esquerda.svg" alt=""></button>
-                    <div class="custom-pagination-blog"></div>
-                    <button id="swiper-blog-next"><img src="../../public/icons/direita.svg" alt=""></button>
-                </div>
-
-            </div>
-
-            <div class="blog-posts">
-                <div class="swiper" id="swiper-blog">
-                    <div class="swiper-wrapper"></div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="newsletter">
-                <p>Cadastre-se e receba <strong>10% OFF</strong> na sua primeira compra!</p>
-
-                <div class="email-input-div">
-                    <input type="email" placeholder="Digite seu e-mail" required>
-                    <span class="mensagem-erro"></span>
-                </div>
-
-                <button type="button">ENVIAR</button>
-            </div>
-
-            <div class="about">
-                <img class="bbc" src="../../public/icons/logo.svg" alt="">
-
-                <div class="direita">
-                    <div class="redes">
-                        <a href=""><img src="../../public/icons/instagram.svg" alt=""></a>
-                        <a href=""><img src="../../public/icons/facebook.svg" alt=""></a>
-                        <a href=""><img src="../../public/icons/pinterest.svg" alt=""></a>
-                        <a href=""><img src="../../public/icons/twitter.svg" alt=""></a>
-                        <a href=""><img src="../../public/icons/tik-tok.svg" alt=""></a>
+            <section class="banner-principal">
+                <div class="swiper" id="swiper-principal">
+                    <div class="swiper-wrapper principal">
+                        <div class="swiper-slide">
+                            <img
+                                src="../../public/png/principal/banner-1.png"
+                                alt=""
+                            />
+                        </div>
+                        <div class="swiper-slide">
+                            <img
+                                src="../../public/png/principal/banner-2.png"
+                                alt=""
+                            />
+                        </div>
                     </div>
 
-                    <div class="sobre">
-                        <h3>Sobre a empresa</h3>
-                        <a href="">Quem somos</a>
-                        <a href="">Fale conosco</a>
+                    <button type="button">Conheça agora!</button>
+                    <div
+                        class="swiper-pagination"
+                        id="pagination-principal"
+                    ></div>
+                </div>
+            </section>
+
+            <section class="categorias">
+                <h2>Categorias</h2>
+
+                <div class="categorias-items">
+                    <div class="categoria">
+                        <img
+                            src="../../public/png/categorias/botas.png"
+                            alt=""
+                        />
+                        <p>Botas</p>
                     </div>
 
-                    <div class="politicas">
-                        <h3>Políticas</h3>
-                        <a href="">Política de Privacidade</a>
-                        <a href="">Termos de Uso</a>
-                        <a href="">Política de Entrega</a>
-                        <a href="">Política de Cupom e Descontos</a>
+                    <div class="categoria">
+                        <img
+                            src="../../public/png/categorias/scarpins.png"
+                            alt=""
+                        />
+                        <p>Scarpins</p>
+                    </div>
+
+                    <div class="categoria">
+                        <img
+                            src="../../public/png/categorias/sapatilhas.png"
+                            alt=""
+                        />
+                        <p>Sapatilhas</p>
+                    </div>
+
+                    <div class="categoria">
+                        <img
+                            src="../../public/png/categorias/sandalias.png"
+                            alt=""
+                        />
+                        <p>Sandálias</p>
                     </div>
                 </div>
-            </div>
-        </footer>
-    </div>
-</body>
+            </section>
 
+            <section class="banner-navegacao">
+                <div>
+                    <img
+                        src="../../public/png/navegacao/banner-grande.png"
+                        alt=""
+                    />
+                </div>
+                <img
+                    src="../../public/png/navegacao/banner-pequeno.png"
+                    alt=""
+                    class="image-2"
+                />
+            </section>
+
+            <section class="lancamentos" id="section-lancamentos">
+                <div class="lancamentos-header">
+                    <h2>Lançamentos</h2>
+
+                    <div class="custom-pagination-container">
+                        <button id="swiper-lancamentos-prev">
+                            <img src="../../public/icons/esquerda.svg" alt="" />
+                        </button>
+                        <div class="custom-pagination-lancamentos"></div>
+                        <button id="swiper-lancamentos-next">
+                            <img src="../../public/icons/direita.svg" alt="" />
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lancamentos-items">
+                    <div class="swiper" id="swiper-lancamentos">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="blog">
+                <div class="blog-header">
+                    <div class="blog-title">
+                        <h2>Conheça mais</h2>
+                        <p>Fique por dentro de tudo que acontece na Bebecê.</p>
+                    </div>
+
+                    <div class="custom-pagination-container">
+                        <button id="swiper-blog-prev">
+                            <img src="../../public/icons/esquerda.svg" alt="" />
+                        </button>
+                        <div class="custom-pagination-blog"></div>
+                        <button id="swiper-blog-next">
+                            <img src="../../public/icons/direita.svg" alt="" />
+                        </button>
+                    </div>
+                </div>
+
+                <div class="blog-posts">
+                    <div class="swiper" id="swiper-blog">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="newsletter">
+                    <p>
+                        Cadastre-se e receba <strong>10% OFF</strong> na sua
+                        primeira compra!
+                    </p>
+
+                    <div class="email-input-div">
+                        <input
+                            type="email"
+                            placeholder="Digite seu e-mail"
+                            required
+                        />
+                        <span class="mensagem-erro"></span>
+                    </div>
+
+                    <button type="button">ENVIAR</button>
+                </div>
+
+                <div class="about">
+                    <img class="bbc" src="../../public/icons/logo.svg" alt="" />
+
+                    <div class="direita">
+                        <div class="redes">
+                            <a href=""
+                                ><img
+                                    src="../../public/icons/instagram.svg"
+                                    alt=""
+                            /></a>
+                            <a href=""
+                                ><img
+                                    src="../../public/icons/facebook.svg"
+                                    alt=""
+                            /></a>
+                            <a href=""
+                                ><img
+                                    src="../../public/icons/pinterest.svg"
+                                    alt=""
+                            /></a>
+                            <a href=""
+                                ><img
+                                    src="../../public/icons/twitter.svg"
+                                    alt=""
+                            /></a>
+                            <a href=""
+                                ><img
+                                    src="../../public/icons/tik-tok.svg"
+                                    alt=""
+                            /></a>
+                        </div>
+
+                        <div class="sobre">
+                            <h3>Sobre a empresa</h3>
+                            <a href="">Quem somos</a>
+                            <a href="">Fale conosco</a>
+                        </div>
+
+                        <div class="politicas">
+                            <h3>Políticas</h3>
+                            <a href="">Política de Privacidade</a>
+                            <a href="">Termos de Uso</a>
+                            <a href="">Política de Entrega</a>
+                            <a href="">Política de Cupom e Descontos</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
 </html>

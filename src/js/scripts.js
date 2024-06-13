@@ -5,6 +5,8 @@ import modalCep from "./modules/modalCep.js";
 import fetchProducts from "./modules/createProducts.js";
 import fetchPosts from "./modules/createPosts.js";
 import menuProdutos from "./modules/menuProdutos.js";
+import cart from "./modules/cart.js";
+import toggleCart from "./modules/header.js";
 import swipers from "./modules/swiper.js";
 
 handleScroll()
@@ -14,6 +16,9 @@ modalCep()
 fetchProducts()
 fetchPosts()
 menuProdutos()
+toggleCart()
+
+
 setTimeout(function() {
     swipers()
 }, 100)
