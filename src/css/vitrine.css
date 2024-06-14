@@ -9,7 +9,6 @@
     justify-content: center;
 }
 
-
 .modal-vitrine {
     display: flex;
     gap: 1rem;
@@ -31,6 +30,9 @@
     border: none;
     padding: 1rem 1rem;
     cursor: pointer;
+    &:hover {
+        background-color: rgb(157, 27, 38);
+    }
 }
 
 .vitrine-produto-img {
@@ -46,7 +48,7 @@
 
 .tamanhos {
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
 .tamanho {
@@ -64,13 +66,18 @@
 }
 .numero-texto {
     color: var(--gray);
-    font-size: .85rem;
+    font-size: 0.85rem;
 }
 
 .vitrine-close {
-    border: none;
     cursor: pointer;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
     position: absolute;
     top: 0;
     right: 0;
+    margin-right: 0.3rem;
 }

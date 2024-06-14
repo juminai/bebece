@@ -63,6 +63,10 @@ header {
     cursor: pointer;
 }
 
+#qtd-carrinho {
+    font-size: 0.75rem;
+}
+
 .menu-esquerda,
 .menu-direita {
     display: flex;
@@ -85,6 +89,7 @@ header {
 }
 
 .menu-esquerda a {
+    
     padding-bottom: 1.5rem;
     border-bottom: 1px solid transparent;
 }
@@ -96,6 +101,6 @@ header {
 
 .header-carrinho {
     display: flex;
-    gap: .5rem;
+    gap: 0.5rem;
     align-items: center;
 }

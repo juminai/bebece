@@ -8,11 +8,15 @@ export default function swipers() {
         },
         pagination: {
             el: '#pagination-principal',
-            clickable: true
+            clickable: true,
         },
     });
 
-    const createCustomPagination = (swiperInstance, paginationContainer, perView) => {
+    const createCustomPagination = (
+        swiperInstance,
+        paginationContainer,
+        perView,
+    ) => {
         paginationContainer.innerHTML = '';
         for (let i = 0; i < swiperInstance.slides.length - (perView - 1); i++) {
             const bullet = document.createElement('div');
@@ -41,14 +45,28 @@ export default function swipers() {
         loop: false,
         on: {
             init: function () {
-                createCustomPagination(this, document.querySelector('.custom-pagination-lancamentos'), 5);
-                updateCustomPagination(this, document.querySelector('.custom-pagination-lancamentos'));
+                createCustomPagination(
+                    this,
+                    document.querySelector('.custom-pagination-lancamentos'),
+                    5,
+                );
+                updateCustomPagination(
+                    this,
+                    document.querySelector('.custom-pagination-lancamentos'),
+                );
             },
             slideChange: function () {
-                updateCustomPagination(this, document.querySelector('.custom-pagination-lancamentos'));
+                updateCustomPagination(
+                    this,
+                    document.querySelector('.custom-pagination-lancamentos'),
+                );
             },
             update: function () {
-                createCustomPagination(this, document.querySelector('.custom-pagination-lancamentos'), 5);
+                createCustomPagination(
+                    this,
+                    document.querySelector('.custom-pagination-lancamentos'),
+                    5,
+                );
             },
         },
         navigation: {
@@ -60,7 +78,6 @@ export default function swipers() {
         autoplay: {
             delay: 5000,
         },
-
     });
 
     const swiperBlog = new Swiper('#swiper-blog', {
@@ -68,12 +85,22 @@ export default function swipers() {
         loop: false,
         on: {
             init: function () {
-                createCustomPagination(this, document.querySelector('.custom-pagination-blog'), 3);
-                updateCustomPagination(this, document.querySelector('.custom-pagination-blog'));
+                createCustomPagination(
+                    this,
+                    document.querySelector('.custom-pagination-blog'),
+                    3,
+                );
+                updateCustomPagination(
+                    this,
+                    document.querySelector('.custom-pagination-blog'),
+                );
             },
             slideChange: function () {
-                updateCustomPagination(this, document.querySelector('.custom-pagination-blog'));
-            }
+                updateCustomPagination(
+                    this,
+                    document.querySelector('.custom-pagination-blog'),
+                );
+            },
         },
         navigation: {
             nextEl: '#swiper-blog-next',
@@ -84,6 +111,5 @@ export default function swipers() {
         autoplay: {
             delay: 5000,
         },
-
     });
 }

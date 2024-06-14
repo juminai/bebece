@@ -16,19 +16,19 @@ export default function getProducts() {
             {
                 name: 'Scarpin Bebecê Salto Alto Taça Com Fivela',
                 image: '/public/png/produto/scarpin-bebece.png',
-                price: { amount: 159.90, isDiscount: null },
+                price: { amount: 159.9, isDiscount: null },
                 id: 3,
             },
             {
                 name: 'Sandália Braco Blanc Tratorada...',
                 image: '/public/png/produto/sandalia-braco.png',
-                price: { amount: 459.90, isDiscount: 319.89 },
+                price: { amount: 459.9, isDiscount: 319.89 },
                 id: 4,
             },
             {
                 name: 'Slingback Branco Tiras Bico Fino Couro',
                 image: '/public/png/produto/slingback.png',
-                price: { amount: 159.90, isDiscount: null },
+                price: { amount: 159.9, isDiscount: null },
                 id: 5,
             },
         ]);

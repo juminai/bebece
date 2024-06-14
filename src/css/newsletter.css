@@ -26,21 +26,20 @@
 
 .mensagem-erro {
     color: var(--red);
-    font-size: .9rem;
+    font-size: 0.9rem;
     position: absolute;
     bottom: 12%;
-
 }
 
 .newsletter input {
     background-color: var(--white);
     border: 1px solid var(--white-3);
-    padding: .9rem 1.5rem;
+    padding: 0.9rem 1.5rem;
     width: 18.75rem;
 
     &::placeholder {
         color: var(--gray);
-        font-size: .9rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -48,7 +47,7 @@
     background-color: var(--red);
     color: var(--white);
     border: 1px solid var(--red);
-    padding: .9rem 1.5rem;
+    padding: 0.9rem 1.5rem;
     width: 18.75rem;
     cursor: pointer;
 }
@@ -62,11 +61,11 @@
         padding-right: 2rem;
     }
 
-    p:nth-child(2){
+    p:nth-child(2) {
         background-color: var(--white);
         border: 2px dashed var(--gray);
         border-radius: 2rem 0 0 2rem;
-        padding: .7rem 1.5rem;
+        padding: 0.7rem 1.5rem;
         margin-right: 0;
         width: 12rem;
         text-align: center;

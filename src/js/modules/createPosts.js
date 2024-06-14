@@ -1,27 +1,17 @@
-import getPosts from "./getPosts.js";
+import getPosts from './getPosts.js';
 
-const blogPosts = document.querySelector('.blog-posts .swiper-wrapper')
+const blogPosts = document.querySelector('.blog-posts .swiper-wrapper');
 
 export default async function fetchPosts() {
-    const posts = await getPosts()
+    const posts = await getPosts();
 
     posts.forEach((post) => {
-        createPost(
-            post.title,
-            post.image,
-            post.desc,
-            post.id
-        )
-    })
+        createPost(post.title, post.image, post.desc, post.id);
+    });
 
     posts.forEach((post) => {
-        createPost(
-            post.title,
-            post.image,
-            post.desc,
-            post.id
-        )
-    })
+        createPost(post.title, post.image, post.desc, post.id);
+    });
 }
 
 function createPost(title, image, desc, id) {
@@ -37,5 +27,5 @@ function createPost(title, image, desc, id) {
                 </div>
             </div>
         </div>
-    `
+    `;
 }

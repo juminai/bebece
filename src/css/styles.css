@@ -17,17 +17,16 @@
 @import url(./carrinho.css);
 
 :root {
-    --font: "Open Sans", sans-serif;
-    --red: #B11B26;
-    --white: #FFFFFF;
+    --font: 'Open Sans', sans-serif;
+    --red: #b11b26;
+    --white: #ffffff;
     --white-dim: #ffffff8c;
-    --white-2: #F7F7F7;
-    --pink:  #F3AA9B;
-    --pink-2: #F5BBAF;
-    --pink-3: #FFE9DC;
-    --black-2: #1D1D1D;
-    --bege: #FFECE1;
-    --gray: #8A8A8A;
-    --white-3: #CECECE;
-
+    --white-2: #f7f7f7;
+    --pink: #f3aa9b;
+    --pink-2: #f5bbaf;
+    --pink-3: #ffe9dc;
+    --black-2: #1d1d1d;
+    --bege: #ffece1;
+    --gray: #8a8a8a;
+    --white-3: #cecece;
 }

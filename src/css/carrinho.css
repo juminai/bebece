@@ -42,9 +42,6 @@
 
 .close-carrinho {
     cursor: pointer;
-}
-
-.close-carrinho {
     display: flex;
     border: none;
     justify-content: center;
@@ -90,7 +87,7 @@
 .item-main .details {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
 }
 
 .item-name {
@@ -127,8 +124,17 @@
     }
 }
 
-.dec, .inc {
+.dec,
+.inc {
+    display: flex;
+    align-items: center;
     font-size: 1rem;
+    cursor: pointer;
+}
+
+.dec.limite {
+    color: var(--white-3);
+    cursor: not-allowed;
 }
 
 .item-qtd .qtd {
@@ -187,4 +193,11 @@
     background-color: var(--white);
     padding: 1rem 2rem;
     font-size: 0.875rem;
+}
+
+.remove-item {
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
 }

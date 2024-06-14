@@ -2,7 +2,7 @@ export default function getCep() {
     const cepForm = document.querySelector('.cep-input');
     const cidadeForm = document.querySelector('.cidade input');
     const estadoForm = document.querySelector('.estado input');
-    const localidadeHeader = document.querySelector('.localidade')
+    const localidadeHeader = document.querySelector('.localidade');
     const modalBackground = document.querySelector('.modal-cep-background');
 
     cepForm.addEventListener('focusout', getCep);
@@ -16,11 +16,11 @@ export default function getCep() {
         const cepInformado = cepForm.value;
 
         if (cepInformado.includes('-')) {
-            cepInformado.replace('-', '')
+            cepInformado.replace('-', '');
         }
 
         const response = await fetch(
-            `https://viacep.com.br/ws/${cepInformado}/json/`
+            `https://viacep.com.br/ws/${cepInformado}/json/`,
         );
         const responseJson = await response.json();
 
@@ -36,15 +36,15 @@ export default function getCep() {
             estado,
         };
 
-        localidadeHeader.textContent = cidade
+        localidadeHeader.textContent = cidade;
         localStorage.setItem('dadosCep', JSON.stringify(dadosCep));
     }
 
-    const dadosSalvos = JSON.parse(localStorage.getItem('dadosCep'))
+    const dadosSalvos = JSON.parse(localStorage.getItem('dadosCep'));
 
     if (!dadosSalvos) {
-        modalBackground.style.display = 'flex'
+        modalBackground.style.display = 'flex';
     } else {
-        localidadeHeader.textContent = dadosSalvos.cidade
+        localidadeHeader.textContent = dadosSalvos.cidade;
     }
 }

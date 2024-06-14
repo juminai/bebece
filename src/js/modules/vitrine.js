@@ -1,4 +1,6 @@
-import cart from './cart.js';
+import getCart from './cart.js';
+import { setCart } from './cart.js';
+import { updateBagCount } from './header.js';
 
 export default function openVitrine(name, image, price, id) {
     const vitrine = document.querySelector('.modal-vitrine-background');
@@ -12,9 +14,10 @@ export default function openVitrine(name, image, price, id) {
     tamanhos.innerHTML = '';
 
     vitrine.style.display = 'flex';
-    vitrineImg.setAttribute('src', image);
+    vitrineImg.src = image;
     vitrineName.textContent = name;
 
+    // criar buttons de tamanho
     for (let i = 34; i <= 42; i++) {
         const tamanho = document.createElement('button');
         tamanho.classList.add(`tamanho`);
@@ -28,48 +31,59 @@ export default function openVitrine(name, image, price, id) {
             });
             tamanho.classList.add('selected');
             vitrineNumber.innerHTML = `
-                <p class="tamanho-texto">Tamanho: <span class="numero-texto" >${tamanho.textContent}</span></p>
+                <p class="tamanho-texto">
+                    Tamanho: 
+                    <span class="numero-texto">
+                        ${tamanho.textContent}
+                    </span>
+                </p>
             `;
         });
     }
 
+    // tamanho 34 pre-selecionado
     document.querySelector('.tamanho-34').classList.add('selected');
     vitrineNumber.innerHTML = `
         <p class="tamanho-texto">Tamanho: <span class="numero-texto" >34</span></p>
     `;
 
-    addToCartBtn.addEventListener('click', () => {
-        let selectedSize = document.querySelector(
-            '.selected'
-        ).textContent;
-        console.log('tamanho ' + selectedSize)
+    function toggleVitrine() {
+        let isOpen = vitrine.style.display != 'flex' ? false : true;
+        isOpen
+            ? (vitrine.style.display = 'none')
+            : (vitrine.style.display = 'true');
 
-        const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+        addToCartBtn.removeEventListener('click', addToCart);
+    }
+
+    function addToCart() {
+        let selectedSize = document.querySelector('.selected').textContent;
+
+        const carrinho = getCart();
 
         const productData = {
+            id,
             name,
             image,
             price,
-            id,
             size: selectedSize,
             qtd: 1,
         };
 
-        // let jaExiste = carrinho.findIndex(
-        //     (obj) => obj.id === id && obj.size === selectedSize
-        // );
+        let jaExiste = carrinho.findIndex(
+            (obj) => obj.id === id && obj.size === selectedSize,
+        );
 
-        // if (jaExiste !== -1) {
-        //     carrinho[jaExiste].qtd += 1;
-        // } else {
-        //     carrinho.push(productData);
-        // }
+        if (jaExiste !== -1) {
+            carrinho[jaExiste].qtd += 1;
+        } else {
+            carrinho.push(productData);
+        }
 
-        carrinho.push(productData)
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
-    });
+        setCart(carrinho);
+        updateBagCount();
+    }
 
-    closeVitrine.addEventListener('click', () => {
-        vitrine.style.display = 'none';
-    });
+    addToCartBtn.addEventListener('click', addToCart);
+    closeVitrine.addEventListener('click', toggleVitrine);
 }

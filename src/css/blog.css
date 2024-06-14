@@ -15,7 +15,7 @@
 .blog .blog-header {
     h2 {
         font-size: 1.75rem;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
     }
 
     p {
@@ -58,22 +58,22 @@
 .custom-pagination-blog {
     display: flex;
     justify-content: end;
-  }
+}
 
-  .custom-pagination-blog .bullet {
+.custom-pagination-blog .bullet {
     width: 10px;
     height: 10px;
     background-color: #ddd;
     border-radius: 50%;
     margin: 0 5px;
     cursor: pointer;
-  }
+}
 
-  .custom-pagination-blog .bullet-active {
+.custom-pagination-blog .bullet-active {
     background-color: var(--black-2);
-  }
+}
 
-  .custom-pagination-container {
+.custom-pagination-container {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -82,6 +82,6 @@
         border: none;
         background-color: transparent;
         cursor: pointer;
-        margin-top: .2rem;
+        margin-top: 0.2rem;
     }
-  }
+}
