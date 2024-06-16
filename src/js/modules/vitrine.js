@@ -75,13 +75,14 @@ export default function openVitrine(name, image, price, id) {
 
         setCart(carrinho);
         updateBagCount();
+        fecharVitrine()
+    }
+
+    function fecharVitrine() {
         vitrine.style.display = 'none';
         addToCartBtn.removeEventListener('click', addToCart);
     }
 
     addToCartBtn.addEventListener('click', addToCart);
-    closeVitrine.addEventListener('click', () => {
-        vitrine.style.display = 'none';
-        addToCartBtn.removeEventListener('click', addToCart);
-    });
+    closeVitrine.addEventListener('click', fecharVitrine);
 }

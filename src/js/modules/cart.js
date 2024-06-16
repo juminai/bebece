@@ -51,6 +51,7 @@ export function cart() {
                     <p">Seu carrinho esta vazio =(</p>
                 </div>
             `;
+            
             carrinhoFooter.style.display = 'none';
         } else {
             carrinhoFooter.style.display = 'flex';
