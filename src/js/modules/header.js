@@ -14,6 +14,12 @@ function handleScroll() {
             : toggleColor('light');
 
         const menuLancamentos = document.querySelector('#menu-lancamentos');
+
+        menuLancamentos.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+        });
+
         const lancamentos = document.querySelector('.lancamentos');
 
         const lancamentosPos = lancamentos.getBoundingClientRect();
@@ -47,7 +53,7 @@ function toggleColor(color) {
         headerImg.forEach((img) => {
             img.setAttribute(
                 'src',
-                `../../public/icons/${img.className}-dark.svg`,
+                `../../public/icons/${img.className}-dark.svg`
             );
         });
 

@@ -10,8 +10,7 @@ export default function openVitrine(name, image, price, id) {
     const tamanhos = document.querySelector('.tamanhos');
     const closeVitrine = document.querySelector('.vitrine-close');
     const addToCartBtn = document.querySelector('.add-carrinho');
-    const body = document.querySelector('body');
-
+    
     tamanhos.innerHTML = '';
     vitrine.style.display = 'flex';
     vitrineImg.src = image;
@@ -76,11 +75,12 @@ export default function openVitrine(name, image, price, id) {
 
         setCart(carrinho);
         updateBagCount();
+        vitrine.style.display = 'none';
     }
 
     addToCartBtn.addEventListener('click', addToCart);
     closeVitrine.addEventListener('click', () => {
-        vitrine.style.display = 'none'
+        vitrine.style.display = 'none';
         addToCartBtn.removeEventListener('click', addToCart);
     });
 }

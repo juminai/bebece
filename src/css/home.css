@@ -9,3 +9,7 @@ body::-webkit-scrollbar {
 .blocked {
     overflow: hidden;
 }
+
+html {
+    scroll-behavior: smooth;
+}

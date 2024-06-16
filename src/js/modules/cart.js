@@ -10,7 +10,6 @@ export function setCart(carrinho) {
 
 export function cart() {
     const cartWindow = document.querySelector('.carrinho-background');
-    const container = document.querySelector('.carrinho-container');
     const items = document.querySelector('.carrinho-items');
     const closeCart = document.querySelector('.close-carrinho');
     const subtotalP = document.getElementById('subtotal');
