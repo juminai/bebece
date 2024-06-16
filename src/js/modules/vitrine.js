@@ -76,6 +76,7 @@ export default function openVitrine(name, image, price, id) {
         setCart(carrinho);
         updateBagCount();
         vitrine.style.display = 'none';
+        addToCartBtn.removeEventListener('click', addToCart);
     }
 
     addToCartBtn.addEventListener('click', addToCart);
