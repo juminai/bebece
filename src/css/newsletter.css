@@ -19,11 +19,13 @@
     }
 }
 
-.mensagem-erro {
+.newsletter .mensagem-erro {
     color: var(--red);
     font-size: 0.9rem;
     position: absolute;
-    bottom: 12%;
+    bottom: 0;
+    margin-bottom: .8rem;
+    left: 47%;
 }
 
 .newsletter input {
@@ -80,7 +82,7 @@
 @media screen and (max-width: 430px) {
     .newsletter {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 2rem;
     }
 
     .newsletter p {
@@ -94,11 +96,12 @@
         width: 97%;
     }
 
-    .mensagem-erro {
+    .newsletter .mensagem-erro {
         color: var(--red);
         font-size: 0.9rem;
         position: absolute;
-        bottom: 35%;
+        bottom: 30%;
+        left: 5%;
     }
 
     .newsletter.clicado {

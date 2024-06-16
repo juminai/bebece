@@ -17,19 +17,21 @@ export function cart() {
     const descontosP = document.getElementById('descontos');
     const totalP = document.getElementById('total');
     const carrinhoFooter = document.querySelector('.carrinho-footer');
+    const continuarComprando = document.querySelector('.continuar');
 
-    closeCart.addEventListener('click', handleCartClose);
-    cartWindow.addEventListener('click', handleCartWindowClick);
+    closeCart.addEventListener('click', fecharCarrinho);
+    continuarComprando.addEventListener('click', fecharCarrinho);
+    cartWindow.addEventListener('click', antiClick);
 
     let carrinho = getCart();
     renderCart();
 
-    function handleCartClose() {
+    function fecharCarrinho() {
         updateBagCount();
         cartWindow.style.display = 'none';
     }
 
-    function handleCartWindowClick(event) {
+    function antiClick(event) {
         if (event.target === cartWindow) {
             event.stopPropagation();
         }
@@ -49,12 +51,12 @@ export function cart() {
                     alt="carrinho"/>
                     <p">Seu carrinho esta vazio =(</p>
                 </div>
-            `
+            `;
             carrinhoFooter.style.display = 'none';
         } else {
             carrinhoFooter.style.display = 'flex';
-            carrinho.forEach((item, index) => {
-                createItem(item, index);
+            carrinho.forEach((item, i) => {
+                createItem(item, i);
                 subtotal += item.price.amount * item.qtd;
 
                 if (item.price.isDiscount != null) {
@@ -64,11 +66,11 @@ export function cart() {
             });
 
             let total = subtotal - descontos;
-            updatePriceDisplay(subtotal, descontos, total);
+            atualizarPreco(subtotal, descontos, total);
         }
     }
 
-    function createItem(item, index) {
+    function createItem(item, i) {
         const itemElement = document.createElement('div');
         itemElement.classList.add('item', `item-${item.id}`);
         itemElement.setAttribute('data-item-size', item.size);
@@ -99,30 +101,30 @@ export function cart() {
         const incrementBtn = itemElement.querySelector('.inc');
         const decreaseBtn = itemElement.querySelector('.dec');
 
-        removeItemBtn.addEventListener('click', () => handleRemoveItem(index));
-        incrementBtn.addEventListener('click', () =>
-            handleIncrementItem(index)
-        );
+        removeItemBtn.addEventListener('click', () => removerItem(i));
+
+        incrementBtn.addEventListener('click', () => incrementarItem(i));
+
         decreaseBtn.addEventListener('click', () =>
-            handleDecreaseItem(index, decreaseBtn)
+            decreaseItem(i, decreaseBtn)
         );
     }
 
-    function handleRemoveItem(index) {
-        carrinho.splice(index, 1);
+    function removerItem(i) {
+        carrinho.splice(i, 1);
         setCart(carrinho);
         renderCart();
     }
 
-    function handleIncrementItem(index) {
-        carrinho[index].qtd += 1;
+    function incrementarItem(i) {
+        carrinho[i].qtd += 1;
         setCart(carrinho);
         renderCart();
     }
 
-    function handleDecreaseItem(index, decreaseBtn) {
-        if (carrinho[index].qtd > 1) {
-            carrinho[index].qtd -= 1;
+    function decreaseItem(i, decreaseBtn) {
+        if (carrinho[i].qtd > 1) {
+            carrinho[i].qtd -= 1;
             setCart(carrinho);
             renderCart();
         } else {
@@ -130,9 +132,9 @@ export function cart() {
         }
     }
 
-    function updatePriceDisplay(subtotal, descontos, total) {
-        subtotalP.textContent = `R$ ${subtotal.toFixed(2)}`;
-        descontosP.textContent = `R$ ${descontos.toFixed(2)}`;
-        totalP.textContent = `R$ ${total.toFixed(2)}`;
+    function atualizarPreco(subtotal, descontos, total) {
+        subtotalP.textContent = `R$ ${subtotal.toFixed(1)}`;
+        descontosP.textContent = `R$ ${descontos.toFixed(1)}`;
+        totalP.textContent = `R$ ${total.toFixed(1)}`;
     }
 }

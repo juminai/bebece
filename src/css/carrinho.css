@@ -189,6 +189,7 @@
     text-decoration: underline;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .carrinho-footer {

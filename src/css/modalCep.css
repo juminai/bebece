@@ -160,6 +160,9 @@
     top: 100%;
     left: 0;
     text-wrap: nowrap;
+    color: var(--red);
+    font-size: 0.9rem;
+    padding-top: .2rem;
 }
 
 @media screen and (max-width: 430px) {

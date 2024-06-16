@@ -1,8 +1,10 @@
 export default function newsletter() {
     const btn = document.querySelector('.newsletter button');
     const newsletter = document.querySelector('.newsletter');
-    const mensagemErro = document.querySelector('.mensagem-erro');
+    const mensagemErro = document.querySelector('.newsletter .mensagem-erro');
     const emailInput = document.querySelector('.newsletter input');
+
+    const cupom = 'BEMVINDA'
 
     btn.addEventListener('click', () => {
         if (emailInput.checkValidity()) {
@@ -10,7 +12,7 @@ export default function newsletter() {
             newsletter.innerHTML = `
                 <p>Utilize o cupom abaixo e garanta seu desconto!</p>
                 <div class="cupom">
-                    <p>BEMVINDA</p>
+                    <p>${cupom}</p>
                     <button class="button-clicado" type="button" value="BEMVINDA">Copiar</button>
                 </div>
             `;
@@ -19,13 +21,18 @@ export default function newsletter() {
             btnClicado.addEventListener('click', () => {
                 btnClicado.textContent = 'Copiado';
 
-                btnClicado.select();
-                btnClicado.setSelectionRange(0, 99999);
-
-                navigator.clipboard.writeText(btnClicado.value);
+                writeClipboardText(cupom)
             });
         } else {
             mensagemErro.textContent = 'Insira um e-mail valido';
         }
     });
+
+    async function writeClipboardText(text) {
+        try {
+            await navigator.clipboard.writeText(text);
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
 }

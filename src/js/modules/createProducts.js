@@ -22,7 +22,7 @@ function createProduct(name, image, price, id) {
 
     if (temDesconto) {
         let desconto = price.amount - price.isDiscount
-        percDesconto = ((desconto / price.amount) * 100).toFixed(1);
+        percDesconto = ((desconto / price.amount) * 100).toFixed(0);
     }
 
     slide.innerHTML += `
