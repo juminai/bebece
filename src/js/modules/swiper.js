@@ -94,7 +94,7 @@ export default function swipers() {
 
     const swiperLancamentos = new Swiper('#swiper-lancamentos', {
         direction: 'horizontal',
-        loop: true,
+        loop: false,
         on: {
             init: function () {
                 createCustomPagination(
