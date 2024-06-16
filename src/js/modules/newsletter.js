@@ -9,8 +9,10 @@ export default function newsletter() {
             newsletter.classList.add('clicado');
             newsletter.innerHTML = `
                 <p>Utilize o cupom abaixo e garanta seu desconto!</p>
-                <p>BEMVINDA</p>
-                <button class="button-clicado" type="button" value="BEMVINDA">Copiar</button>
+                <div class="cupom">
+                    <p>BEMVINDA</p>
+                    <button class="button-clicado" type="button" value="BEMVINDA">Copiar</button>
+                </div>
             `;
 
             const btnClicado = document.querySelector('.button-clicado');

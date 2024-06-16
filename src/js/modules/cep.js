@@ -4,6 +4,10 @@ export default function getCep() {
     const estadoForm = document.querySelector('.estado input');
     const localidadeHeader = document.querySelector('.localidade');
     const modalBackground = document.querySelector('.modal-cep-background');
+    const saveBtn = document.querySelector('.save-cep');
+    const mensagemErro = document.querySelector(
+        '.codigo-postal .mensagem-erro'
+    );
 
     cepForm.addEventListener('focusout', getCep);
     cepForm.addEventListener('keydown', () => {
@@ -13,31 +17,41 @@ export default function getCep() {
     });
 
     async function getCep() {
-        const cepInformado = cepForm.value;
+        const validarInput = cepForm.checkValidity();
+        if (validarInput) {
 
-        if (cepInformado.includes('-')) {
-            cepInformado.replace('-', '');
+            mensagemErro.textContent = ''
+
+            const cepInformado = cepForm.value;
+
+            if (cepInformado.includes('-')) {
+                cepInformado.replace('-', '');
+            }
+
+            const response = await fetch(
+                `https://viacep.com.br/ws/${cepInformado}/json/`
+            );
+            const responseJson = await response.json();
+
+            const cidade = responseJson.localidade;
+            const estado = responseJson.uf;
+
+            cidadeForm.value = cidade;
+            estadoForm.value = estado;
+
+            const dadosCep = {
+                cep: cepInformado,
+                cidade,
+                estado,
+            };
+
+            localidadeHeader.textContent = cidade;
+            localStorage.setItem('dadosCep', JSON.stringify(dadosCep));
+            saveBtn.disabled = false    
+        } else {
+            mensagemErro.textContent = 'Digite um cep valido.'
+            saveBtn.disabled = true
         }
-
-        const response = await fetch(
-            `https://viacep.com.br/ws/${cepInformado}/json/`,
-        );
-        const responseJson = await response.json();
-
-        const cidade = responseJson.localidade;
-        const estado = responseJson.uf;
-
-        cidadeForm.value = cidade;
-        estadoForm.value = estado;
-
-        const dadosCep = {
-            cep: cepInformado,
-            cidade,
-            estado,
-        };
-
-        localidadeHeader.textContent = cidade;
-        localStorage.setItem('dadosCep', JSON.stringify(dadosCep));
     }
 
     const dadosSalvos = JSON.parse(localStorage.getItem('dadosCep'));

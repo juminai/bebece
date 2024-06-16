@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
@@ -16,14 +16,14 @@
         <div class="home-page">
             <div class="modal-cep-background">
                 <div class="modal-cep">
-                    <button type="button" class="close-button-cep">
-                        <img src="../../public/icons/close-button.svg" alt="" />
-                    </button>
-
                     <h2>
                         Personalize sua experiência e encontre produtos perto de
                         você!
                     </h2>
+
+                    <button type="button" class="close-button-cep">
+                        <img src="../../public/icons/close-button.svg" alt="" />
+                    </button>
 
                     <div class="modal-cep-inputs">
                         <div class="codigo-postal">
@@ -32,8 +32,9 @@
                                 class="cep-input"
                                 type="text"
                                 placeholder="00000-000"
-                                pattern="\d{5}.?\d{3}"
+                                pattern="\d{5}-?\d{3}"
                             />
+                            <span class="mensagem-erro"></span>
                         </div>
 
                         <div class="cidade-estado">
@@ -43,18 +44,27 @@
                                     type="text"
                                     class="cidade-input"
                                     placeholder="opcional"
-                                    readonly
                                 />
                             </div>
 
                             <div class="estado">
                                 <p>Estado</p>
-                                <input
-                                    type="text"
-                                    class="estado-input"
-                                    placeholder="opcional"
-                                    readonly
-                                />
+                                <div class="input">
+                                    <input
+                                        type="text"
+                                        class="estado-input"
+                                        placeholder="opcional"
+                                    />
+                                    <div class="dropdown-container">
+                                        <button class="abrir-dropdown">
+                                            <img
+                                                src="../../public/icons/baixo-dark.svg"
+                                                alt=""
+                                            />
+                                        </button>
+                                        <ul class="estados-dropdown"></ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -73,13 +83,11 @@
                         class="vitrine-produto-img"
                         id="vitrine-img"
                     />
+
+                    <button class="vitrine-close">
+                        <img src="../../public/icons/close-button.svg" alt="" />
+                    </button>
                     <div class="vitrine-produto-info" id="vitrine-specs">
-                        <button class="vitrine-close">
-                            <img
-                                src="../../public/icons/close-button.svg"
-                                alt=""
-                            />
-                        </button>
                         <h2 class="vitrine-produto-nome" id="vitrine-name"></h2>
 
                         <div class="vitrine-produto-tamanhos">
@@ -138,6 +146,74 @@
                 </div>
             </div>
 
+            <div class="menu-mobile">
+                <div class="menu-mobile-header">
+                    <div class="top">
+                        <img src="/public/icons/logo-dark.svg" alt="" />
+
+                        <button class="menu-mobile-close">
+                            <img src="/public/icons/close-button.svg" alt="" />
+                        </button>
+                    </div>
+                    <div class="menu-mobile-banner">
+                        <img
+                            src="/public/png/principal/banner-menu-mobile.png"
+                            alt=""
+                        />
+
+                        <div class="banner-info">
+                            <p>Celebration - 20 Anos</p>
+                            <a href="">Conheça</a>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="menu-mobile-options">
+                    <li>Liquida</li>
+                    <li>
+                        <div class="menu-expand menu-sapatos">
+                            <div class="option">
+                                <p>Sapatos</p>
+                                <img class="expand-icon" src="/public/icons/direita.svg" alt="" />
+                            </div>
+                            <ul class="lista-sapatos">
+                                <li>Scarpins</li>
+                                <li>Mocassim</li>
+                                <li>Sapatilhas</li>
+                                <li>Mules</li>
+                                <li>Peep Toe</li>
+                                <li>Oxford</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="menu-expand-empty menu-sandalias">
+                            <div class="option">
+                                <p>Sandálias</p>
+                                <img class="expand-icon" src="/public/icons/direita.svg" alt="" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="menu-expand-empty menu-botas">
+                            <div class="option">
+                                <p>Botas</p>
+                                <img class="expand-icon" src="/public/icons/direita.svg" alt="" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="menu-expand-empty menu-tenis">
+                            <div class="option">
+                                <p>Tênis</p>
+                                <img class="expand-icon" src="/public/icons/direita.svg" alt="" />
+                            </div>
+                        </div>
+                    </li>
+                    <li>Outlet</li>
+                </ul>
+            </div>
+
             <header>
                 <div class="location">
                     <p class="texto">
@@ -149,6 +225,17 @@
                 <div class="menu">
                     <div class="options">
                         <div class="menu-esquerda">
+                            <img
+                                class="menu-icon"
+                                src="../../public/icons/menu-icon.svg"
+                                alt="menu-icon"
+                            />
+                            <img
+                                class="lupa"
+                                id="lupa-mobile"
+                                src="../../public/icons/lupa.svg"
+                                alt="search"
+                            />
                             <img
                                 class="logo"
                                 src="../../public/icons/logo.svg"
@@ -213,15 +300,17 @@
 
             <section class="banner-principal">
                 <div class="swiper" id="swiper-principal">
-                    <div class="swiper-wrapper principal">
+                    <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <img
+                                class="banner-1"
                                 src="../../public/png/principal/banner-1.png"
                                 alt=""
                             />
                         </div>
                         <div class="swiper-slide">
                             <img
+                                class="banner-2"
                                 src="../../public/png/principal/banner-2.png"
                                 alt=""
                             />
@@ -240,36 +329,40 @@
                 <h2>Categorias</h2>
 
                 <div class="categorias-items">
-                    <div class="categoria">
-                        <img
-                            src="../../public/png/categorias/botas.png"
-                            alt=""
-                        />
-                        <p>Botas</p>
-                    </div>
+                    <div class="swiper" id="swiper-categorias">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img
+                                    src="../../public/png/categorias/botas.png"
+                                    alt=""
+                                />
+                                <p>Botas</p>
+                            </div>
 
-                    <div class="categoria">
-                        <img
-                            src="../../public/png/categorias/scarpins.png"
-                            alt=""
-                        />
-                        <p>Scarpins</p>
-                    </div>
+                            <div class="swiper-slide">
+                                <img
+                                    src="../../public/png/categorias/scarpins.png"
+                                    alt=""
+                                />
+                                <p>Scarpins</p>
+                            </div>
 
-                    <div class="categoria">
-                        <img
-                            src="../../public/png/categorias/sapatilhas.png"
-                            alt=""
-                        />
-                        <p>Sapatilhas</p>
-                    </div>
+                            <div class="swiper-slide">
+                                <img
+                                    src="../../public/png/categorias/sapatilhas.png"
+                                    alt=""
+                                />
+                                <p>Sapatilhas</p>
+                            </div>
 
-                    <div class="categoria">
-                        <img
-                            src="../../public/png/categorias/sandalias.png"
-                            alt=""
-                        />
-                        <p>Sandálias</p>
+                            <div class="swiper-slide">
+                                <img
+                                    src="../../public/png/categorias/sandalias.png"
+                                    alt=""
+                                />
+                                <p>Sandálias</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -281,11 +374,7 @@
                         alt=""
                     />
                 </div>
-                <img
-                    src="../../public/png/navegacao/banner-pequeno.png"
-                    alt=""
-                    class="image-2"
-                />
+                <img class="image-2" src="" alt="" />
             </section>
 
             <section class="lancamentos" id="section-lancamentos">
@@ -331,6 +420,7 @@
                 <div class="blog-posts">
                     <div class="swiper" id="swiper-blog">
                         <div class="swiper-wrapper"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </section>
@@ -342,14 +432,12 @@
                         primeira compra!
                     </p>
 
-                    <div class="email-input-div">
-                        <input
-                            type="email"
-                            placeholder="Digite seu e-mail"
-                            required
-                        />
-                        <span class="mensagem-erro"></span>
-                    </div>
+                    <input
+                        type="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                    />
+                    <span class="mensagem-erro"></span>
 
                     <button type="button">ENVIAR</button>
                 </div>

@@ -79,7 +79,12 @@ header {
 }
 
 .menu-direita {
+    justify-content: flex-end;
     align-self: start;
+}
+
+.menu-esquerda {
+    justify-content: flex-start;
 }
 
 #menu-produtos {
@@ -89,7 +94,6 @@ header {
 }
 
 .menu-esquerda a {
-    
     padding-bottom: 1.5rem;
     border-bottom: 1px solid transparent;
 }
@@ -103,4 +107,66 @@ header {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+}
+
+#lupa-mobile {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media screen and (max-width: 430px) {
+    .location {
+        font-size: 0.75rem;
+        font-weight: 400;
+    }
+
+    .logo {
+        margin: 0 5rem;
+    }
+
+    .menu {
+        padding: 1.5rem 1rem;
+    }
+
+    .menu-icon {
+        display: block;
+        width: 1rem;
+    }
+
+    .options {
+        justify-content: space-between;
+    }
+
+    .lupa {
+        display: none;
+    }
+
+    #lupa-mobile {
+        display: block;
+    }
+
+    .menu-esquerda,
+    .menu-direita {
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .menu-direita {
+        justify-content: flex-end;
+        margin-left: auto;
+    }
+
+    #menu-produtos,
+    #menu-lancamentos,
+    #menu-outlet {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 393px) {
+}
+@media screen and (max-width: 393px) {
 }

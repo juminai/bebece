@@ -73,15 +73,30 @@
     background-color: var(--black-2);
 }
 
-.custom-pagination-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
 
-    button {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        margin-top: 0.2rem;
+@media screen and (max-width: 430px) {
+    .blog {
+        padding: 2rem 1rem;
     }
+
+    .blog h2{
+        font-size: 1rem;
+    }
+
+    .blog .custom-pagination-container {
+        display: none;
+    }
+
+    #swiper-blog .swiper-pagination {
+        text-align: end;
+    }
+
+    #swiper-blog .swiper-pagination-bullet-active {
+        background-color: var(--black-2);
+    }
+
+    #swiper-blog .swiper-slide {
+        margin-bottom: 2rem;
+    }
+
 }

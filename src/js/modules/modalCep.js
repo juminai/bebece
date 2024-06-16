@@ -1,18 +1,21 @@
 export default function modalCep() {
     const alterarLocalidadeHeader = document.querySelector(
-        '.alterar-localidade',
+        '.alterar-localidade'
     );
-    const modalBtns = document.querySelectorAll('.modal-cep button');
+    const saveBtn = document.querySelector('.modal-cep .save-cep');
+    const closeBtn = document.querySelector('.modal-cep .close-button-cep');
     const modalBackground = document.querySelector('.modal-cep-background');
 
     alterarLocalidadeHeader.addEventListener('click', () => {
         modalBackground.style.display = 'flex';
     });
 
-    modalBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            modalBackground.style.display = 'none';
-        });
+    saveBtn.addEventListener('click', () => {
+        modalBackground.style.display = 'none';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modalBackground.style.display = 'none';
     });
 
     modalBackground.addEventListener('click', function (event) {
@@ -20,4 +23,46 @@ export default function modalCep() {
             modalBackground.style.display = 'none';
         }
     });
+    
+    const estadoForm = document.querySelector('.estado input');
+    const dropdown = document.querySelector('.estados-dropdown')
+    const listaEstados = [
+        'AC',
+        'AL',
+        'AP',
+        'AM',
+        'BA',
+        'CE',
+        'DF',
+        'ES',
+        'GO',
+        'MA',
+        'MT',
+        'MS',
+        'MG',
+        'PA',
+        'PB',
+        'PR',
+        'PE',
+        'PI',
+        'RJ',
+        'RN',
+        'RS',
+        'RO',
+        'RR',
+        'SC',
+        'SP',
+        'SE',
+        'TO',
+    ];
+
+    listaEstados.forEach(estado => {
+        const itemDropdown = document.createElement('li')
+        itemDropdown.textContent = estado
+        itemDropdown.addEventListener('click', () => {
+            estadoForm.value = itemDropdown.textContent
+        })
+        dropdown.appendChild(itemDropdown)
+    })
+
 }

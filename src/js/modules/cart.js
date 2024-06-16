@@ -18,20 +18,22 @@ export function cart() {
     const totalP = document.getElementById('total');
     const carrinhoFooter = document.querySelector('.carrinho-footer');
 
-    closeCart.addEventListener('click', () => {
-        updateBagCount();
-        cartWindow.style.display = 'none';
-    });
-
-    cartWindow.addEventListener('click', (event) => {
-        if (event.target === this) {
-            event.stopPropagation();
-        }
-    });
+    closeCart.addEventListener('click', handleCartClose);
+    cartWindow.addEventListener('click', handleCartWindowClick);
 
     let carrinho = getCart();
-
     renderCart();
+
+    function handleCartClose() {
+        updateBagCount();
+        cartWindow.style.display = 'none';
+    }
+
+    function handleCartWindowClick(event) {
+        if (event.target === cartWindow) {
+            event.stopPropagation();
+        }
+    }
 
     function renderCart() {
         let subtotal = 0;
@@ -39,68 +41,20 @@ export function cart() {
 
         items.innerHTML = '';
 
-        if (carrinho.length == 0) {
+        if (carrinho.length === 0) {
             items.innerHTML = `
-            <p>Seu carrinho está vazio =(</p>`;
+                <div class="carrinho-vazio">
+                    <img class="cart"
+                    src="../../public/icons/cart-dark.svg"
+                    alt="carrinho"/>
+                    <p">Seu carrinho esta vazio =(</p>
+                </div>
+            `
             carrinhoFooter.style.display = 'none';
-            container.classList.add('empty');
         } else {
             carrinhoFooter.style.display = 'flex';
-            container.classList.remove('empty');
-            carrinho.forEach((item) => {
-                createItem(
-                    item.name,
-                    item.image,
-                    item.id,
-                    item.price,
-                    item.qtd,
-                    item.size,
-                    items,
-                );
-
-                const currentItem = document.querySelector(`.item-${item.id}`);
-                const removeItemBtn = currentItem.querySelector(
-                    `[data-item-size="${item.size}"][data-item-qtd="${item.qtd}"] .remove-item`,
-                );
-
-                let itemIndex = carrinho.findIndex(
-                    (obj) => obj.id === item.id && obj.size === item.size,
-                );
-
-                removeItemBtn.addEventListener('click', () => {
-                    carrinho.splice(itemIndex, 1);
-                    setCart(carrinho);
-                    renderCart();
-                });
-
-                const incrementBtn = currentItem.querySelector(
-                    `[data-item-size="${item.size}"][data-item-qtd="${item.qtd}"] .inc`,
-                );
-                const decreaseBtn = currentItem.querySelector(
-                    `[data-item-size="${item.size}"][data-item-qtd="${item.qtd}"] .dec`,
-                );
-
-                let currentQtd = carrinho[itemIndex].qtd;
-
-                if (currentQtd == 1) {
-                    decreaseBtn.classList.add('limite');
-                }
-
-                decreaseBtn.addEventListener('click', () => {
-                    if (currentQtd > 1) {
-                        carrinho[itemIndex].qtd -= 1;
-                        setCart(carrinho);
-                        renderCart();
-                    }
-                });
-
-                incrementBtn.addEventListener('click', () => {
-                    carrinho[itemIndex].qtd += 1;
-                    incrementBtn.classList.remove('limite');
-                    setCart(carrinho);
-                    renderCart();
-                });
-
+            carrinho.forEach((item, index) => {
+                createItem(item, index);
                 subtotal += item.price.amount * item.qtd;
 
                 if (item.price.isDiscount != null) {
@@ -110,40 +64,75 @@ export function cart() {
             });
 
             let total = subtotal - descontos;
-
-            subtotalP.textContent = `R$ ${subtotal.toFixed(2)}`;
-            descontosP.textContent = `R$ ${descontos.toFixed(2)}`;
-            totalP.textContent = `R$ ${total.toFixed(2)}`;
+            updatePriceDisplay(subtotal, descontos, total);
         }
     }
-}
 
-function createItem(name, image, id, price, qtd, size, container) {
-    const item = document.createElement('div');
-    item.classList.add('item', `item-${id}`);
-    item.setAttribute('data-item-size', size);
-    item.setAttribute('data-item-qtd', qtd);
+    function createItem(item, index) {
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('item', `item-${item.id}`);
+        itemElement.setAttribute('data-item-size', item.size);
+        itemElement.setAttribute('data-item-qtd', item.qtd);
 
-    item.innerHTML = `    
-        <div class="item-main">
-            <img src="${image}" alt="">
-
-            <div class="details">
-                <p class="item-name">${name}</p>
-                <p class="item-size">Tamanho: ${size}</p>
-                <p class="item-price">R$${price.amount}</p>
+        itemElement.innerHTML = `
+            <div class="item-main">
+                <img src="${item.image}" alt="">
+                <div class="details">
+                    <p class="item-name">${item.name}</p>
+                    <p class="item-size">Tamanho: ${item.size}</p>
+                    <p class="item-price">R$${item.price.amount}</p>
+                </div>
             </div>
-        </div>
-        <div class="item-qtd">
-            <div class="increment">
-                <button class="dec">-</button>
-                <p class="qtd">${qtd}</p>
-                <button class="inc">+</button>
+            <div class="item-qtd">
+                <div class="increment">
+                    <button class="dec">-</button>
+                    <p class="qtd">${item.qtd}</p>
+                    <button class="inc">+</button>
+                </div>
+                <button class="remove-item">Remover</button>
             </div>
+        `;
 
-            <button class="remove-item">Remover</button>
-        </div>
-    `;
+        items.appendChild(itemElement);
 
-    container.appendChild(item);
+        const removeItemBtn = itemElement.querySelector('.remove-item');
+        const incrementBtn = itemElement.querySelector('.inc');
+        const decreaseBtn = itemElement.querySelector('.dec');
+
+        removeItemBtn.addEventListener('click', () => handleRemoveItem(index));
+        incrementBtn.addEventListener('click', () =>
+            handleIncrementItem(index)
+        );
+        decreaseBtn.addEventListener('click', () =>
+            handleDecreaseItem(index, decreaseBtn)
+        );
+    }
+
+    function handleRemoveItem(index) {
+        carrinho.splice(index, 1);
+        setCart(carrinho);
+        renderCart();
+    }
+
+    function handleIncrementItem(index) {
+        carrinho[index].qtd += 1;
+        setCart(carrinho);
+        renderCart();
+    }
+
+    function handleDecreaseItem(index, decreaseBtn) {
+        if (carrinho[index].qtd > 1) {
+            carrinho[index].qtd -= 1;
+            setCart(carrinho);
+            renderCart();
+        } else {
+            decreaseBtn.classList.add('limite');
+        }
+    }
+
+    function updatePriceDisplay(subtotal, descontos, total) {
+        subtotalP.textContent = `R$ ${subtotal.toFixed(2)}`;
+        descontosP.textContent = `R$ ${descontos.toFixed(2)}`;
+        totalP.textContent = `R$ ${total.toFixed(2)}`;
+    }
 }

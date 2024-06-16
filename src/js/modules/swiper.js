@@ -1,4 +1,18 @@
 export default function swipers() {
+    let param = {
+        blog: 3,
+        lancamentos: 5,
+        categorias: 4,
+    };
+
+    if (window.innerWidth <= 430) {
+        param = {
+            blog: 1,
+            lancamentos: 1.7,
+            categorias: 2.5,
+        };
+    }
+
     const swiperPrincipal = new Swiper('#swiper-principal', {
         direction: 'horizontal',
         loop: true,
@@ -10,12 +24,46 @@ export default function swipers() {
             el: '#pagination-principal',
             clickable: true,
         },
+        on: {
+            init: function () {
+                changeImgSrc();
+            },
+        },
     });
+
+    const swiperCategorias = new Swiper('#swiper-categorias', {
+        direction: 'horizontal',
+        loop: true,
+        slidesPerView: param.categorias,
+        spaceBetween: 15,
+    });
+
+    function changeImgSrc() {
+        const banner1 = document.querySelector('.banner-1');
+        const banner2 = document.querySelector('.banner-2');
+
+        if (window.innerWidth <= 430) {
+            banner1.src = '../../public/png/principal/banner-mobile-1.png';
+            banner2.src = '../../public/png/principal/banner-mobile-2.png';
+
+            setTimeout(function () {
+                swiperPrincipal.appendSlide(`
+                <div class="swiper-slide">
+                    <img
+                        class="banner-3"
+                        src="../../public/png/principal/banner-mobile-3.png"
+                        alt=""
+                    />
+                </div>
+            `);
+            }, 200);
+        }
+    }
 
     const createCustomPagination = (
         swiperInstance,
         paginationContainer,
-        perView,
+        perView
     ) => {
         paginationContainer.innerHTML = '';
         for (let i = 0; i < swiperInstance.slides.length - (perView - 1); i++) {
@@ -40,32 +88,30 @@ export default function swipers() {
         });
     };
 
+    const paginationLancamentos = document.querySelector(
+        '.custom-pagination-lancamentos'
+    );
+
     const swiperLancamentos = new Swiper('#swiper-lancamentos', {
         direction: 'horizontal',
-        loop: false,
+        loop: true,
         on: {
             init: function () {
                 createCustomPagination(
                     this,
-                    document.querySelector('.custom-pagination-lancamentos'),
-                    5,
+                    paginationLancamentos,
+                    param.lancamentos
                 );
-                updateCustomPagination(
-                    this,
-                    document.querySelector('.custom-pagination-lancamentos'),
-                );
+                updateCustomPagination(this, paginationLancamentos);
             },
             slideChange: function () {
-                updateCustomPagination(
-                    this,
-                    document.querySelector('.custom-pagination-lancamentos'),
-                );
+                updateCustomPagination(this, paginationLancamentos);
             },
             update: function () {
                 createCustomPagination(
                     this,
-                    document.querySelector('.custom-pagination-lancamentos'),
-                    5,
+                    paginationLancamentos,
+                    param.lancamentos
                 );
             },
         },
@@ -73,40 +119,38 @@ export default function swipers() {
             nextEl: '#swiper-lancamentos-next',
             prevEl: '#swiper-lancamentos-prev',
         },
-        slidesPerView: 5,
+        slidesPerView: param.lancamentos,
         spaceBetween: 15,
         autoplay: {
             delay: 5000,
         },
     });
 
+    const paginationBlog = document.querySelector('.custom-pagination-blog');
+
     const swiperBlog = new Swiper('#swiper-blog', {
         direction: 'horizontal',
         loop: false,
         on: {
             init: function () {
-                createCustomPagination(
-                    this,
-                    document.querySelector('.custom-pagination-blog'),
-                    3,
-                );
-                updateCustomPagination(
-                    this,
-                    document.querySelector('.custom-pagination-blog'),
-                );
+                createCustomPagination(this, paginationBlog, param.blog);
+                updateCustomPagination(this, paginationBlog);
             },
             slideChange: function () {
-                updateCustomPagination(
-                    this,
-                    document.querySelector('.custom-pagination-blog'),
-                );
+                updateCustomPagination(this, paginationBlog);
+            },
+            update: function () {
+                createCustomPagination(this, paginationBlog, param.blog);
             },
         },
         navigation: {
             nextEl: '#swiper-blog-next',
             prevEl: '#swiper-blog-prev',
         },
-        slidesPerView: 3,
+        pagination: {
+            el: '#swiper-blog .swiper-pagination',
+        },
+        slidesPerView: param.blog,
         spaceBetween: 15,
         autoplay: {
             delay: 5000,

@@ -47,6 +47,9 @@ export default function openVitrine(name, image, price, id) {
         <p class="tamanho-texto">Tamanho: <span class="numero-texto" >34</span></p>
     `;
 
+    // tamanho 42 disabled por default
+    document.querySelector('.tamanho-42').disabled = true
+
     function toggleVitrine() {
         let isOpen = vitrine.style.display != 'flex' ? false : true;
         isOpen

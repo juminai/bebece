@@ -10,6 +10,9 @@ import { cart } from './modules/cart.js';
 import { updateBagCount } from './modules/header.js';
 import toggleCart from './modules/header.js';
 import swipers from './modules/swiper.js';
+import { setFavorite } from './modules/favorite.js';
+import menuMobile from './modules/menuMobile.js';
+import { togglePagination } from './modules/createPosts.js';
 
 handleScroll();
 checkY();
@@ -22,7 +25,14 @@ menuProdutos();
 toggleCart();
 cart();
 updateBagCount();
+setFavorite();
+menuMobile();
+togglePagination();
 
 setTimeout(function () {
     swipers();
 }, 100);
+
+
+window.onload = swipers;
+window.onresize = swipers;

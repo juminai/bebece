@@ -15,6 +15,7 @@
 @import url(./menuProdutos.css);
 @import url(./vitrine.css);
 @import url(./carrinho.css);
+@import url(./menu-mobile.css);
 
 :root {
     --font: 'Open Sans', sans-serif;
@@ -29,4 +30,5 @@
     --bege: #ffece1;
     --gray: #8a8a8a;
     --white-3: #cecece;
+    --white-4: #eeeeee;
 }

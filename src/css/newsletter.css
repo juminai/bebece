@@ -19,11 +19,6 @@
     }
 }
 
-.email-input-div {
-    display: flex;
-    flex-direction: column;
-}
-
 .mensagem-erro {
     color: var(--red);
     font-size: 0.9rem;
@@ -35,7 +30,7 @@
     background-color: var(--white);
     border: 1px solid var(--white-3);
     padding: 0.9rem 1.5rem;
-    width: 18.75rem;
+    width: 15%;
 
     &::placeholder {
         color: var(--gray);
@@ -48,7 +43,7 @@
     color: var(--white);
     border: 1px solid var(--red);
     padding: 0.9rem 1.5rem;
-    width: 18.75rem;
+    width: 15%;
     cursor: pointer;
 }
 .newsletter.clicado {
@@ -56,12 +51,17 @@
 }
 
 .newsletter.clicado {
+    
     p:nth-child(1) {
         color: var(--black-2);
         padding-right: 2rem;
     }
 
-    p:nth-child(2) {
+    div {
+        display: flex;
+    }
+
+    div p:nth-child(1) {
         background-color: var(--white);
         border: 2px dashed var(--gray);
         border-radius: 2rem 0 0 2rem;
@@ -74,5 +74,48 @@
     button {
         border-radius: 0 2rem 2rem 0;
         width: 10rem;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .newsletter {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .newsletter p {
+        text-align: center;
+    }
+
+    .newsletter input {
+        width: 85%;
+    }
+    .newsletter button {
+        width: 97%;
+    }
+
+    .mensagem-erro {
+        color: var(--red);
+        font-size: 0.9rem;
+        position: absolute;
+        bottom: 35%;
+    }
+
+    .newsletter.clicado {
+        gap: 1rem;
+
+        p:nth-child(1) {
+            padding-right: 0;
+        }
+        div {
+            display: flex;
+        }
+
+        div p:nth-child(1) {
+            width: 10rem;
+        }
+        button {
+            width: 8rem;
+        }
     }
 }

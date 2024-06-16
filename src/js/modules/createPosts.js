@@ -8,10 +8,16 @@ export default async function fetchPosts() {
     posts.forEach((post) => {
         createPost(post.title, post.image, post.desc, post.id);
     });
+}
 
-    posts.forEach((post) => {
-        createPost(post.title, post.image, post.desc, post.id);
-    });
+export function togglePagination() {
+    const paginationMobile = document.querySelector(
+        '.blog-posts .swiper-pagination'
+    );
+
+    window.innerWidth <= 430
+        ? (paginationMobile.style.display = 'block')
+        : (paginationMobile.style.display = 'none');
 }
 
 function createPost(title, image, desc, id) {
