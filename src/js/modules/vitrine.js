@@ -10,9 +10,9 @@ export default function openVitrine(name, image, price, id) {
     const tamanhos = document.querySelector('.tamanhos');
     const closeVitrine = document.querySelector('.vitrine-close');
     const addToCartBtn = document.querySelector('.add-carrinho');
+    const body = document.querySelector('body');
 
     tamanhos.innerHTML = '';
-
     vitrine.style.display = 'flex';
     vitrineImg.src = image;
     vitrineName.textContent = name;
@@ -48,16 +48,7 @@ export default function openVitrine(name, image, price, id) {
     `;
 
     // tamanho 42 disabled por default
-    document.querySelector('.tamanho-42').disabled = true
-
-    function toggleVitrine() {
-        let isOpen = vitrine.style.display != 'flex' ? false : true;
-        isOpen
-            ? (vitrine.style.display = 'none')
-            : (vitrine.style.display = 'true');
-
-        addToCartBtn.removeEventListener('click', addToCart);
-    }
+    document.querySelector('.tamanho-42').disabled = true;
 
     function addToCart() {
         let selectedSize = document.querySelector('.selected').textContent;
@@ -74,7 +65,7 @@ export default function openVitrine(name, image, price, id) {
         };
 
         let jaExiste = carrinho.findIndex(
-            (obj) => obj.id === id && obj.size === selectedSize,
+            (obj) => obj.id === id && obj.size === selectedSize
         );
 
         if (jaExiste !== -1) {
@@ -88,5 +79,8 @@ export default function openVitrine(name, image, price, id) {
     }
 
     addToCartBtn.addEventListener('click', addToCart);
-    closeVitrine.addEventListener('click', toggleVitrine);
+    closeVitrine.addEventListener('click', () => {
+        vitrine.style.display = 'none'
+        addToCartBtn.removeEventListener('click', addToCart);
+    });
 }

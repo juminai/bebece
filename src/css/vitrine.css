@@ -33,6 +33,10 @@
     &:hover {
         background-color: rgb(157, 27, 38);
     }
+
+    &:active {
+        background-color: rgb(201, 21, 36);
+    }
 }
 
 .vitrine-produto-img {

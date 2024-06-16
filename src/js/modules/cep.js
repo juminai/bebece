@@ -18,8 +18,8 @@ export default function getCep() {
 
     async function getCep() {
         const validarInput = cepForm.checkValidity();
+        
         if (validarInput) {
-
             mensagemErro.textContent = ''
 
             const cepInformado = cepForm.value;
