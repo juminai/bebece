@@ -33,6 +33,6 @@ setTimeout(function () {
     swipers();
 }, 100);
 
-
-window.onload = swipers;
-window.onresize = swipers;
+window.addEventListener('resize', () => {
+    location.reload()
+})

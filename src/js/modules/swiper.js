@@ -56,7 +56,7 @@ export default function swipers() {
                     />
                 </div>
             `);
-            }, 200);
+            }, 100);
         }
     }
 
@@ -121,9 +121,6 @@ export default function swipers() {
         },
         slidesPerView: param.lancamentos,
         spaceBetween: 15,
-        autoplay: {
-            delay: 5000,
-        },
     });
 
     const paginationBlog = document.querySelector('.custom-pagination-blog');
@@ -152,8 +149,5 @@ export default function swipers() {
         },
         slidesPerView: param.blog,
         spaceBetween: 15,
-        autoplay: {
-            delay: 5000,
-        },
     });
 }
